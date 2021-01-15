@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 12
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	ml_tree
+	1
+
+[Tue Jan 12 17:28:08 2021]
+rule ml_tree:
+    input: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/2_msa/P68871_trimmed_msa.fasta
+    output: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.bestTree, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.log, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.bestModel, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.mlTrees, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.rba, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.startTree
+    jobid: 0
+    benchmark: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/benchmarks/P68871_ml_tree.out
+    wildcards: output_folder=/cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow, msa_name=P68871
+    resources: cpus=12, mem_mb=8192, time_min=7200
+
+Activating conda environment: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/.snakemake/conda/62a10dff
+[Tue Jan 12 17:54:59 2021]
+Finished job 0.
+1 of 1 steps (100%) done

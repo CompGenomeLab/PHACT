@@ -1,0 +1,17 @@
+configfile: "../config/config.yml"
+
+rule all:
+    input:
+        expand("{output_folder}/results/{msa_name}/5_scores/{msa_name}_wol_param_{pattern}.csv",output_folder=config["output_folder"], msa_name=config["msa_name"],pattern=config["pattern"]),
+        expand("{output_folder}/results/{msa_name}/5_scores/{msa_name}_wl_param_{pattern}.csv",output_folder=config["output_folder"], msa_name=config["msa_name"],pattern=config["pattern"]),
+
+include : "rules/blastp.smk"
+include : "rules/get_blasthits.smk"
+include : "rules/header_update.smk"
+include : "rules/msa.smk"
+include : "rules/trim_msa.smk"
+include : "rules/remove_gaps.smk"
+include : "rules/ml_tree.smk"
+include : "rules/unroot_tree.smk"
+include : "rules/run_codeml.smk"
+include : "rules/compute_score.smk"

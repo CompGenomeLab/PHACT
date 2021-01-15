@@ -1,0 +1,23 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	compute_score
+	1
+
+[Tue Jan 12 22:13:07 2021]
+rule compute_score:
+    input: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P22033/3_mltree/P22033.raxml.bestTree_unrooted, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P22033/4_codeml/P22033_codeml
+    output: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P22033/5_scores/P22033_wol_param_CountNodes_1.csv, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P22033/5_scores/P22033_wl_param_CountNodes_1.csv
+    log: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/rules/P22033_CountNodes_1_compute_score.err
+    jobid: 0
+    benchmark: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/benchmarks/P22033_CountNodes_1_compute_score.out
+    wildcards: output_folder=/cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow, msa_name=P22033, pattern=CountNodes_1
+    resources: cpus=2, mem_mb=8192, time_min=1200
+
+Activating conda environment: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/.snakemake/conda/17731746
+[Tue Jan 12 22:16:52 2021]
+Finished job 0.
+1 of 1 steps (100%) done

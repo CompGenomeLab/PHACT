@@ -1,0 +1,23 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	unroot_tree
+	1
+
+[Tue Jan 12 22:54:37 2021]
+rule unroot_tree:
+    input: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/3_mltree/P01008.raxml.bestTree
+    output: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/3_mltree/P01008.raxml.bestTree_unrooted
+    log: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/rules/P01008_unroot_tree.err
+    jobid: 0
+    benchmark: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/benchmarks/P01008_unroot_tree.out
+    wildcards: output_folder=/cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow, msa_name=P01008
+    resources: cpus=2, mem_mb=8192, time_min=1200
+
+Activating conda environment: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/.snakemake/conda/17731746
+[Tue Jan 12 22:54:43 2021]
+Finished job 0.
+1 of 1 steps (100%) done

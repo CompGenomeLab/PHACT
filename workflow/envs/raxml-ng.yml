@@ -1,0 +1,5 @@
+name: raxml-ng 
+channels:
+  - bioconda
+dependencies:
+  - raxml-ng = 0.9.0 

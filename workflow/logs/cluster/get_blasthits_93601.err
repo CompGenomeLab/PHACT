@@ -1,0 +1,23 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	get_blasthits
+	1
+
+[Tue Jan 12 17:26:08 2021]
+rule get_blasthits:
+    input: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P22033/1_blastp/P22033_blasthits.out, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/resources/blastdb/all_eu.fasta, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/resources/msa_files/P22033.fasta
+    output: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P22033/1_blastp/P22033_blasthits.fasta
+    log: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/rules/P22033_get_blasthits.err
+    jobid: 0
+    benchmark: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/benchmarks/P22033_get_blasthits.out
+    wildcards: output_folder=/cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow, msa_name=P22033
+    resources: cpus=2, mem_mb=10240, time_min=300
+
+Activating conda environment: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/.snakemake/conda/28ebb6b5
+[Tue Jan 12 17:28:21 2021]
+Finished job 0.
+1 of 1 steps (100%) done

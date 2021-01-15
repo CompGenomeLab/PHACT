@@ -1,0 +1,68 @@
+
+RAxML-NG v. 0.9.0 released on 20.05.2019 by The Exelixis Lab.
+Developed by: Alexey M. Kozlov and Alexandros Stamatakis.
+Contributors: Diego Darriba, Tomas Flouri, Benoit Morel, Sarah Lutteropp, Ben Bettisworth.
+Latest version: https://github.com/amkozlov/raxml-ng
+Questions/problems/suggestions? Please visit: https://groups.google.com/forum/#!forum/raxml
+
+RAxML-NG was called at 12-Jan-2021 17:32:12 as follows:
+
+raxml-ng --msa /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/2_msa/P01008_trimmed_msa.fasta --data-type AA --model LG4M --prefix /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/3_mltree/P01008 --seed 2 --threads 12
+
+Analysis options:
+  run mode: ML tree search
+  start tree(s): random (10) + parsimony (10)
+  random seed: 2
+  tip-inner: OFF
+  pattern compression: ON
+  per-rate scalers: OFF
+  site repeats: ON
+  fast spr radius: AUTO
+  spr subtree cutoff: 1.000000
+  branch lengths: proportional (ML estimate, algorithm: NR-FAST)
+  SIMD kernels: AVX2
+  parallelization: PTHREADS (12 threads), thread pinning: OFF
+
+[00:00:00] Reading alignment from file: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/2_msa/P01008_trimmed_msa.fasta
+[00:00:00] Loaded alignment with 191 taxa and 374 sites
+
+WARNING: Sequences sp_P32262_ANT3_SHEEP_9940 and tr_W5PTR4_W5PTR4_SHEEP_9940 are exactly identical!
+WARNING: Duplicate sequences found: 1
+
+NOTE: Reduced alignment (with duplicates and gap-only sites/taxa removed) 
+NOTE: was saved to: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/3_mltree/P01008.raxml.reduced.phy
+
+Alignment comprises 1 partitions and 372 patterns
+
+Partition 0: noname
+Model: LG4M+G4m
+Alignment sites / patterns: 374 / 372
+Gaps: 0.75 %
+Invariant sites: 2.94 %
+
+
+NOTE: Binary MSA file created: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P01008/3_mltree/P01008.raxml.rba
+
+
+WARNING: You might be using too many threads (12) for your alignment with 372 unique patterns.
+NOTE:    For the optimal throughput, please consider using fewer threads 
+NOTE:    and parallelize across starting trees/bootstrap replicates.
+NOTE:    As a general rule-of-thumb, please assign at least 200-1000 alignment patterns per thread.
+
+[00:00:00] Generating 10 random starting tree(s) with 191 taxa
+[00:00:00] Generating 10 parsimony starting tree(s) with 191 taxa
+[00:00:00] Data distribution: max. partitions/sites/weight per thread: 1 / 31 / 2480
+
+Starting ML tree search with 20 distinct starting trees
+
+[00:00:00 -116246.181494] Initial branch length optimization
+[00:00:00 -96758.850549] Model parameter optimization (eps = 10.000000)
+[00:00:01 -96623.976377] AUTODETECT spr round 1 (radius: 5)
+[00:00:05 -67884.782556] AUTODETECT spr round 2 (radius: 10)
+[00:00:10 -51926.894241] AUTODETECT spr round 3 (radius: 15)
+[00:00:18 -49864.257449] AUTODETECT spr round 4 (radius: 20)
+[00:00:24 -49785.676213] AUTODETECT spr round 5 (radius: 25)
+[00:00:29 -49785.657459] SPR radius for FAST iterations: 20 (autodetect)
+[00:00:29 -49785.657459] Model parameter optimization (eps = 3.000000)
+[00:00:30 -49714.182499] FAST spr round 1 (radius: 20)
+[00:00:37 -46132.160567] FAST spr round 2 (radius: 20)

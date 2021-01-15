@@ -1,0 +1,55 @@
+cnfigfile: "config.yml"
+
+#outputs
+output_folder: "/cta/users/eakkoyun/WORKFOLDER/temp/phylogeny-workflow"
+msa_name: ["P01008","P68871","P22033"]
+
+#blast
+blastdb_folder: "resources/blastdb"
+blastdb_file: "all_eu.fasta"
+outfmt: "0"
+max_target_seqs: "200"
+
+#parse blast
+blast_hit_number: "200"
+max_e_value: "0.00001"
+min_identity: "30"
+max_identity: "95"
+
+#alignment
+mafft_method: "-linsi" #if left empty it will be FFT-NS-2
+
+#trim alignment
+trimal_method: "-gt 0.8"
+
+#tree:
+raxml_model: "LG4M"
+raxml_seed: "2"
+raxml_threads: "12"
+
+#iqtree
+iqtree_seed: "1234"
+
+#codeml:
+aa_dist: "0"
+aa_rate_file: "static/lg_LG.PAML.txt"
+seqtype: "2"
+verbose: "2"
+noisy: "9"
+clock: "0"
+model: "1"
+icode: "0"
+Mgene: "0"
+fix_alpha: "0"
+alpha: "0.5"
+Malpha: "1"
+ncatG: "4"
+getSE: "0" 
+RateAncestor: "1"
+Small_Diff: ".5e-6"
+cleandata: "0"
+method: "1" 
+
+#phylas
+weights: "0,1,2,3,X,CountNodes_1,CountNodes_2,CountNodes_3,CountNodes_4"
+pattern: "CountNodes_1"

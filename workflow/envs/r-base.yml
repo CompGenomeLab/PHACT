@@ -1,0 +1,13 @@
+name: r-base 
+channels:
+  - conda-forge 
+  - bioconda 
+dependencies:
+  - r = 4.0 
+  - r-ape= 5.4 
+  - bioconductor-biostrings = 2.58.0 
+  - r-ggplot2 = 3.3.3
+  - bioconductor-ggtree = 2.4.0
+  - r-tidytree = 0.3.3
+  - r-stringr = 1.4.0
+  - r-dplyr = 1.0.2

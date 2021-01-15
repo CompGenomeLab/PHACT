@@ -1,0 +1,8 @@
+name: python 
+channels:
+  - python
+  - bioconda
+dependencies:
+  - python = 3.7.4
+  - biopython = 1.73
+  - paml = 4.9

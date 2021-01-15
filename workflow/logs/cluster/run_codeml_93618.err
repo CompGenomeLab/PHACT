@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	run_codeml
+	1
+
+[Tue Jan 12 17:55:38 2021]
+rule run_codeml:
+    input: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/2_msa/P68871_nogap_msa.fasta, /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.bestTree_unrooted
+    output: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/4_codeml/P68871_codeml
+    log: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/rules/P68871_run_codeml.err
+    jobid: 0
+    benchmark: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/benchmarks/P68871_run_codeml.out
+    wildcards: output_folder=/cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow, msa_name=P68871
+    resources: cpus=2, mem_mb=8192, time_min=1200, time=1200
+
+Activating conda environment: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/.snakemake/conda/1f0fc2a5
+[Tue Jan 12 17:55:42 2021]
+Error in rule run_codeml:
+    jobid: 0
+    output: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/4_codeml/P68871_codeml
+    log: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/rules/P68871_run_codeml.err (check log file(s) for error message)
+    conda-env: /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/.snakemake/conda/1f0fc2a5
+    shell:
+        PATH=/cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/resources/paml4.9j/bin:$PATH && python scripts/codeml.py /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/2_msa/P68871_nogap_msa.fasta /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/3_mltree/P68871.raxml.bestTree_unrooted /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/4_codeml/P68871_codeml /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/results/P68871/4_codeml 2 2 9 0 0 static/lg_LG.PAML.txt 1 0 0 0 0.5 1 4 0 1 .5e-6 0 1 2> /cta/users/eakkoyun/WORKFOLDER/phylogeny-workflow/workflow/logs/rules/P68871_run_codeml.err
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
