@@ -38,8 +38,33 @@ The content of config.yml under config folder indicates the name of proteins ana
 - All other parameters for variety number of rules inside Snakefile. You can easily changes the parameter.
 ## Cluster
 - There is a single file (config/slurm/config.yaml) for batch submission. You need to make proper changes for your HPC environment. You do not have to make changes for Sabanci HPC cluster.
+# Run
+- Running workflow on a HPC cluster is simply now. First, run snakemake with dry-run parameter to check that everything is fine. Then, delete the parameter and run the snakemake as following. It will submit job per rule defined in the Snakefile.
+
+**$ cd workflow**\
+**$ module load snakemake-5.23.0 # to load snakemake into your environment**\
+**$ snakemake --use-conda --profile ../config/slurm --dry-run**
 
 
+```
+Job counts:
+	count	jobs
+	1	all
+	3	blastp
+	3	compute_score
+	3	get_blasthits
+	3	header_update
+	3	ml_tree
+	3	msa
+	3	remove_gaps
+	3	run_codeml
+	3	trim_msa
+	3	unroot_tree
+	31
+This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.
+```
+
+**$ snakemake --use-conda --profile ../config/slurm**
 
 
 
