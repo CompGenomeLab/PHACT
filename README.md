@@ -16,7 +16,8 @@ This repository prepared for batch submission to an HPC cluster (slurm) and runn
 ## Snakemake and Conda
  - You need to clone the repository in your working directory.
  `git clone https://github.com/CompGenomeLab/phylogeny-snakemake.git`
- - You need to have conda for package manager and snakemake for workflow batch submission in your HPC cluster. 
+ - You need to have conda for package manager and snakemake for workflow batch submission in your HPC cluster. Loading snakemake module is enough for Sabanci HPC.
+ `module load snakemake-5.23.0`
  - If you submit batchs for tosun, Sabanci HPC, you do not have to do following steps, for blastb and paml.
 ## Blastdb
 - You need to put **all_eu.fasta** file under **resources/blastdb** folder for alignment. 
