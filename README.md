@@ -41,7 +41,7 @@ The content of config.yml under config folder indicates the name of proteins ana
 # Run
 - Running workflow on a HPC cluster is simply now. First, run snakemake with dry-run parameter to check that everything is fine. Then, delete the parameter and run the snakemake as following. It will submit job per rule defined in the Snakefile.
 
-**$ cd workflow**\
+**$ cd phylogeny-snakemake/workflow** \
 **$ module load snakemake-5.23.0 # to load snakemake into your environment**\
 **$ snakemake --use-conda --profile ../config/slurm --dry-run**
 
