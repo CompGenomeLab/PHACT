@@ -70,7 +70,6 @@ default-resources: [cpus=4, time_min=9600]
 
 **$ cd phylogeny-snakemake** \
 **$ pwd** # set workdir inside config/config.yml file with this path \
-**$ module load snakemake-5.23.0 # to load snakemake into your environment**\
 **$ cd workflow** \
 **$ snakemake --use-conda --profile ../config/slurm_truba --dry-run**
 
