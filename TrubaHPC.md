@@ -19,10 +19,10 @@ This repository prepared for batch submission to an HPC cluster (slurm) and runn
  - You need to have conda for package manager and snakemake for workflow batch submission in your HPC cluster. The following set of commands are given for installation conda in your environment without super user right. It might be useful if you need a specific version of snakemake or any required tool as well. Please have a look at the [link](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) for more information about Python3 version of Miniconda, mamba and snakemake installation.
 
 **to install miniconda in your home folder** \
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh .
-bash Miniconda3-latest-Linux-x86_64.sh 
-source ~/miniconda3/etc/profile.d/conda.sh
-conda --help
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh . \
+bash Miniconda3-latest-Linux-x86_64.sh  \
+source ~/miniconda3/etc/profile.d/conda.sh \
+conda --help \
 
 **mamba is officially recommended to install snakemake. We need to have mamba first.**\
 $ conda install -c conda-forge mamba \
