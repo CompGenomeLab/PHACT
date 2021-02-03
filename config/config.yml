@@ -2,7 +2,7 @@ cnfigfile: "config.yml"
 
 #outputs
 output_folder: "/cta/users/eakkoyun/WORKFOLDER/temp/phylogeny-workflow"
-msa_name: ["P01008","P68871","P22033"]
+msa_name: ["P01008","P68871"]
 
 #blast
 blastdb_folder: "resources/blastdb"
