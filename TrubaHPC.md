@@ -37,7 +37,7 @@ $ snakemake --version
 
  - If you submit batchs for levrek1, Truba HPC, you have to do following steps, for blastb and paml. For other HPC, you need to put required files manually.
 ## Blastdb
-- You need to put **all_eu.fasta** file under **resources/blastdb** folder for alignment. 
+- You need to put **all_eu.fasta** file under **resources/blastdb** folder for alignment. \
 $ cd resources \
 $ rm blastdb \
 $ ln -s /truba/home/emrah/shared/blastdb blastdb \
@@ -48,7 +48,7 @@ $ ln -s /truba/home/emrah/shared/blastdb blastdb \
 
 `resources/paml4.9j should be accessible.` 
 
-**NOTES:** There is already a compiled version of PAML (paml4.9j) for levrek1 (TRUBA HPC). You can easily use the installation (`/truba/home/emrah/shared/paml4.9j`) by running following commands.
+**NOTES:** There is already a compiled version of PAML (paml4.9j) for levrek1 (TRUBA HPC). You can easily use the installation (`/truba/home/emrah/shared/paml4.9j`) by running following commands. \
 $ rm paml4.9j \
 $ ls -s /truba/home/emrah/shared/paml4.9j paml4.9j
 
