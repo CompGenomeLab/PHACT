@@ -22,7 +22,7 @@ num_to_aa <- function(num) {
   return(aa)
 }
 
-compute_score <- function(file_nwk, file_rst, output_name, human_id, pos_chosen, parameters) {
+compute_score <- function(file_nwk, file_rst, output_name, species_id, pos_chosen, parameters) {
   
   tr_org = read.tree(file_nwk)
   x <- readLines(file_rst)
@@ -50,7 +50,7 @@ compute_score <- function(file_nwk, file_rst, output_name, human_id, pos_chosen,
   connects <- str_split(connections, pattern = "[ ]", simplify = TRUE)
   connects <- connects[connects !=""]
   
-  h_name <- human_id
+  h_name <- species_id
   human_codeml <- names_all[sapply(X = names_all, function(n){ grepl(n, h_name, fixed = TRUE)})]
   
   leaf_human <- which(tree_info$label == human_codeml)
@@ -270,4 +270,4 @@ weight_fnc <- function(d_n, d_l, human_plc, parameter, leaves_conn, nodes_conn) 
   return(weights)
 }
 
-csv_file <- compute_score(file_nwk=args[1],file_rst=args[2],output_name=args[3],human_id=args[4],'all', parameters = args[5])
+csv_file <- compute_score(file_nwk=args[1],file_rst=args[2],output_name=args[3],species_id=args[4],'all', parameters = args[5])
