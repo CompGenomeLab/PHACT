@@ -9,5 +9,7 @@ rule msa:
         "{output_folder}/workflow/logs/rules/{msa_name}_msa.err"
     benchmark:
         "{output_folder}/workflow/logs/benchmarks/{msa_name}_msa.out"
+    resources:
+        cpus=8
     shell:
-        "mafft{config[mafft_method]} {input.fasta} > {output.msa_file} 2> {log}"
+        "mafft{config[mafft_method]} --thread {resources.cpus} {input.fasta} > {output.msa_file} 2> {log}"
