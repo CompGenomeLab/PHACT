@@ -22,18 +22,18 @@ This repository prepared for batch submission to an HPC cluster (slurm) and runn
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh . \
 bash Miniconda3-latest-Linux-x86_64.sh  \
 source ~/miniconda3/etc/profile.d/conda.sh \
-conda --help \
+conda --help 
 
 **mamba is officially recommended to install snakemake. We need to have mamba first.**\
-$ conda install -c conda-forge mamba \
+$ conda install -c conda-forge mamba 
 
 **to install snakemake via mamba**\
-$ mamba create -c conda-forge -c bioconda -n snakemake snakemake \
+$ mamba create -c conda-forge -c bioconda -n snakemake snakemake 
 
 **Conda and snakemake are ready for job submission if there is no error faced before. To activate snakemake for each login**\
 $ source ~/miniconda3/etc/profile.d/conda.sh \
 $ conda activate snakemake \
-$ snakemake --version \
+$ snakemake --version 
 
  - If you submit batchs for levrek1, Truba HPC, you have to do following steps, for blastb and paml. For other HPC, you need to put required files manually.
 ## Blastdb
