@@ -59,7 +59,7 @@ The content of config.yml under config folder indicates the name of proteins ana
 - msa_name lists all proteins that will be analyzed. All msa files should be stored resources/msa_files. A few example of msa files are available in the repository.
 - All other parameters for variety number of rules inside Snakefile. You can easily changes the parameter.
 ## Cluster
-- There is a single file (config/slurm/config.yaml) for batch submission. You need to make proper changes for your HPC environment. An example for Truba HPC is given, please use proper partition name for your requirements.
+- There is a single file (config/slurm/config.yaml) for batch submission. You need to make proper changes for your HPC environment. An example for Truba HPC (config_truba.yaml) is given, please use proper partition name for your requirements.
 ```
 jobs: 64 
 cluster: "sbatch -p mid2 -J {rule}.job --qos long_investor --nodes=1 --ntasks=1 -t {resources.time_min}  -c {resources.cpus} -o logs/cluster/{rule}_%A.out -e logs/cluster/{rule}_%A.err"
