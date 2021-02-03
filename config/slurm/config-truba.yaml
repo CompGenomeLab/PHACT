@@ -1,0 +1,3 @@
+jobs: 64 
+cluster: "sbatch -p mid2 -J {rule}.job --qos long_investor --nodes=1 --ntasks=1 -t {resources.time_min}  -c {resources.cpus} -o logs/cluster/{rule}_%A.out -e logs/cluster/{rule}_%A.err"
+default-resources: [cpus=4, time_min=9600]
