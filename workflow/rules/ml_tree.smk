@@ -1,19 +1,19 @@
 rule ml_tree:
     input:
-        trimmed_msa = "{output_folder}/results/{msa_name}/2_msa/{msa_name}_trimmed_msa.fasta",        
+        trimmed_msa = "{workdir}/results/{query_fasta}/2_msa/{query_fasta}_trimmed_msa.fasta",        
     output:
-        bestTree = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.bestTree",
-        log_file = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.log",
-        bestModel = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.bestModel",
-        mlTrees = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.mlTrees",
-        rba = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.rba",
-        startTree = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.startTree",
+        bestTree = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.bestTree",
+        log_file = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.log",
+        bestModel = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.bestModel",
+        mlTrees = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.mlTrees",
+        rba = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.rba",
+        startTree = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.startTree",
     params:
-        raxml_out_name = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}",
+        raxml_out_name = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}",
     conda:
         "../envs/raxml-ng.yml"
     benchmark:
-        "{output_folder}/workflow/logs/benchmarks/{msa_name}_ml_tree.out"
+        "{workdir}/workflow/logs/benchmarks/{query_fasta}_ml_tree.out"
     resources:
         time_min=7200,cpus=12
     shell:

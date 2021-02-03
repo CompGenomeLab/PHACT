@@ -1,14 +1,14 @@
 rule msa:
     input:
-        fasta = "{output_folder}/results/{msa_name}/1_blastp/{msa_name}_blasthits_new_header.fasta",
+        fasta = "{workdir}/results/{query_fasta}/1_blastp/{query_fasta}_blasthits_new_header.fasta",
     output:
-        msa_file = "{output_folder}/results/{msa_name}/2_msa/{msa_name}_blasthits_new_header_msa.fasta",
+        msa_file = "{workdir}/results/{query_fasta}/2_msa/{query_fasta}_blasthits_new_header_msa.fasta",
     conda:
         "../envs/mafft.yml"
     log:
-        "{output_folder}/workflow/logs/rules/{msa_name}_msa.err"
+        "{workdir}/workflow/logs/rules/{query_fasta}_msa.err"
     benchmark:
-        "{output_folder}/workflow/logs/benchmarks/{msa_name}_msa.out"
+        "{workdir}/workflow/logs/benchmarks/{query_fasta}_msa.out"
     resources:
         cpus=8
     shell:

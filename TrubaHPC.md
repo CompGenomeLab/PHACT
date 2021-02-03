@@ -55,8 +55,8 @@ $ ln -s /truba/home/emrah/shared/paml4.9j paml4.9j
 # Configuration
 ## Parameters
 The content of config.yml under config folder indicates the name of proteins analayzed and parameters for all consequtive tasks performed.
-- **output_folder** indicates the working directory. After cloning the repository, you need to set the path (PWD) properly. Default is /cta/users/eakkoyun/WORKFOLDER/temp/phylogeny-workflow
-- msa_name lists all proteins that will be analyzed. All msa files should be stored resources/msa_files. A few example of msa files are available in the repository.
+- **workdir** indicates the working directory. After cloning the repository, you need to set the path (PWD) properly. Default is /cta/users/eakkoyun/WORKFOLDER/temp/phylogeny-workflow
+- query_fasta lists all proteins that will be analyzed. All msa files should be stored resources/msa_files. A few example of msa files are available in the repository.
 - All other parameters for variety number of rules inside Snakefile. You can easily changes the parameter.
 ## Cluster
 - There is a single file (config/slurm_truba/config.yaml) for batch submission. You need to make proper changes for your HPC environment. An example for Truba HPC (config.yaml) is given, please use proper partition name for your requirements.
@@ -69,7 +69,7 @@ default-resources: [cpus=4, time_min=9600]
 - Running workflow on a HPC cluster is simply now. First, run snakemake with dry-run parameter to check that everything is fine. Then, delete the parameter and run the snakemake as following. It will submit job per rule defined in the Snakefile.
 
 **$ cd phylogeny-snakemake** \
-**$ pwd** # set output_folder inside config/config.yml file with this path \
+**$ pwd** # set workdir inside config/config.yml file with this path \
 **$ module load snakemake-5.23.0 # to load snakemake into your environment**\
 **$ cd workflow** \
 **$ snakemake --use-conda --profile ../config/slurm_truba --dry-run**

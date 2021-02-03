@@ -59,7 +59,7 @@ def write_config_file(acc_no,base_path,weights):
         dependencies = "dependencies: "
         blast_= "  - blast = 2.9.0"
         python_ = "  - python = 3.7.4"
-        text = "output_folder: "  + '"' +  protein_directory + '"'
+        text = "workdir: "  + '"' +  protein_directory + '"'
         output_name = "output_name: " + '"'+  acc_no + '"'
         fasta_file = "fasta_file: " +'"'+ acc_no + ".fasta" + '"'
         fasta_folder = "fasta_folder: " + '"' + base_path + acc_no + '"'

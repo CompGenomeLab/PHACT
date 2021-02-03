@@ -1,13 +1,13 @@
 rule blastp:
     input:
-        fasta = "{output_folder}/resources/msa_files/{msa_name}.fasta",
-        blastdb = expand("{output_folder}/{blastdb_folder}/{blastdb}", output_folder=config["output_folder"], blastdb_folder=config["blastdb_folder"], blastdb=config["blastdb_file"])
+        fasta = "{workdir}/resources/msa_files/{query_fasta}.fasta",
+        blastdb = expand("{workdir}/{blastdb_folder}/{blastdb}", workdir=config["workdir"], blastdb_folder=config["blastdb_folder"], blastdb=config["blastdb_file"])
     output:
-        outfile = "{output_folder}/results/{msa_name}/1_blastp/{msa_name}_blasthits.out"
+        outfile = "{workdir}/results/{query_fasta}/1_blastp/{query_fasta}_blasthits.out"
     log:
-        "{output_folder}/workflow/logs/rules/{msa_name}_blastp.err"
+        "{workdir}/workflow/logs/rules/{query_fasta}_blastp.err"
     benchmark:
-        "{output_folder}/workflow/logs/benchmarks/{msa_name}_blastp.out"
+        "{workdir}/workflow/logs/benchmarks/{query_fasta}_blastp.out"
     conda:
         "../envs/blastp.yml"
     shell:

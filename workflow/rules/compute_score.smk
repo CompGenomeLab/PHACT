@@ -1,18 +1,18 @@
 rule compute_score:
     input:
-        tree_file = "{output_folder}/results/{msa_name}/3_mltree/{msa_name}.raxml.bestTree_unrooted",
-        codeml_out ="{output_folder}/results/{msa_name}/4_codeml/{msa_name}_codeml",
+        tree_file = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.bestTree_unrooted",
+        codeml_out ="{workdir}/results/{query_fasta}/4_codeml/{query_fasta}_codeml",
     output:
-        "{output_folder}/results/{msa_name}/5_scores/{msa_name}_wol_param_{pattern}.csv",
-        "{output_folder}/results/{msa_name}/5_scores/{msa_name}_wl_param_{pattern}.csv",
+        "{workdir}/results/{query_fasta}/5_scores/{query_fasta}_wol_param_{pattern}.csv",
+        "{workdir}/results/{query_fasta}/5_scores/{query_fasta}_wl_param_{pattern}.csv",
     params:
-        out = "{output_folder}/results/{msa_name}/5_scores/{msa_name}",
-        rst = "{output_folder}/results/{msa_name}/4_codeml/rst",
-        fasta = "{output_folder}/resources/msa_files/{msa_name}.fasta",
+        out = "{workdir}/results/{query_fasta}/5_scores/{query_fasta}",
+        rst = "{workdir}/results/{query_fasta}/4_codeml/rst",
+        fasta = "{workdir}/resources/msa_files/{query_fasta}.fasta",
     log:
-        "{output_folder}/workflow/logs/rules/{msa_name}_{pattern}_compute_score.err"
+        "{workdir}/workflow/logs/rules/{query_fasta}_{pattern}_compute_score.err"
     benchmark:
-        "{output_folder}/workflow/logs/benchmarks/{msa_name}_{pattern}_compute_score.out"
+        "{workdir}/workflow/logs/benchmarks/{query_fasta}_{pattern}_compute_score.out"
     conda:
         "../envs/r-base.yml"
     shell:

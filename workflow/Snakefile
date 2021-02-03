@@ -2,8 +2,8 @@ configfile: "../config/config.yml"
 
 rule all:
     input:
-        expand("{output_folder}/results/{msa_name}/5_scores/{msa_name}_wol_param_{pattern}.csv",output_folder=config["output_folder"], msa_name=config["msa_name"],pattern=config["pattern"]),
-        expand("{output_folder}/results/{msa_name}/5_scores/{msa_name}_wl_param_{pattern}.csv",output_folder=config["output_folder"], msa_name=config["msa_name"],pattern=config["pattern"]),
+        expand("{workdir}/results/{query_fasta}/5_scores/{query_fasta}_wol_param_{pattern}.csv",workdir=config["workdir"], query_fasta=config["query_fasta"],pattern=config["pattern"]),
+        expand("{workdir}/results/{query_fasta}/5_scores/{query_fasta}_wl_param_{pattern}.csv",workdir=config["workdir"], query_fasta=config["query_fasta"],pattern=config["pattern"]),
 
 include : "rules/blastp.smk"
 include : "rules/get_blasthits.smk"
