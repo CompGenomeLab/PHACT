@@ -69,7 +69,9 @@ This was a dry-run (flag -n). The order of jobs does not reflect the order of ex
 Please pay attention to the following points for running snakemake workflow on HPC.
 - use keep-going parameters to proceed running independent jobs in case of any failure on a task. This option allows submitting jobs for other proteins, while the consequtive jobs are not submitted for the protein that we observed a failure.
 - use screen or execute the snakemake command in background. Otherwise, the next jobs are not submitted when we close the terminal or lost connection to the user interface. This is especially useful for long set of runs in workflow. If you do not know how to use screen in linux, you can execute the command as following and follow the output under .snakemake/log/ folder.\
-**$ nohup snakemake --use-conda --profile ../config/slurm --keep-going  > /dev/null 2>&1 & **
+
+**$ nohup snakemake --use-conda --profile ../config/slurm --keep-going  > /dev/null 2>&1 &**
+
 
 
 
