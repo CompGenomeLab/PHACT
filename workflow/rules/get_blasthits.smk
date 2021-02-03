@@ -2,7 +2,7 @@ rule get_blasthits:
     input:
         blastp_out = "{workdir}/results/{query_fasta}/1_blastp/{query_fasta}_blasthits.out",
 	blastdb = expand("{workdir}/{blastdb_folder}/{blastdb}", workdir=config["workdir"], blastdb_folder=config["blastdb_folder"], blastdb=config["blastdb_file"]),
-        query_fasta = "{workdir}/resources/msa_files/{query_fasta}.fasta",
+        query_fasta = "{workdir}/resources/query_fasta/{query_fasta}.fasta",
     output:
         "{workdir}/results/{query_fasta}/1_blastp/{query_fasta}_blasthits.fasta",
     resources:

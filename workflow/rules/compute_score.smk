@@ -8,7 +8,7 @@ rule compute_score:
     params:
         out = "{workdir}/results/{query_fasta}/5_scores/{query_fasta}",
         rst = "{workdir}/results/{query_fasta}/4_codeml/rst",
-        fasta = "{workdir}/resources/msa_files/{query_fasta}.fasta",
+        fasta = "{workdir}/resources/query_fasta/{query_fasta}.fasta",
     log:
         "{workdir}/workflow/logs/rules/{query_fasta}_{pattern}_compute_score.err"
     benchmark:

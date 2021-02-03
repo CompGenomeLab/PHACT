@@ -1,6 +1,6 @@
 rule remove_gaps:
     input:
-        query_file ="{workdir}/resources/msa_files/{query_fasta}.fasta",
+        query_file ="{workdir}/resources/query_fasta/{query_fasta}.fasta",
         msa_file = "{workdir}/results/{query_fasta}/2_msa/{query_fasta}_blasthits_new_header_msa.fasta",
     output:
         no_gap_file = "{workdir}/results/{query_fasta}/2_msa/{query_fasta}_nogap_msa.fasta",

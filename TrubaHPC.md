@@ -56,7 +56,7 @@ $ ln -s /truba/home/emrah/shared/paml4.9j paml4.9j
 ## Parameters
 The content of config.yml under config folder indicates the name of proteins analayzed and parameters for all consequtive tasks performed.
 - **workdir** indicates the working directory. After cloning the repository, you need to set the path (PWD) properly. Default is /cta/users/eakkoyun/WORKFOLDER/temp/phylogeny-workflow
-- query_fasta lists all proteins that will be analyzed. All msa files should be stored resources/msa_files. A few example of msa files are available in the repository.
+- query_fasta lists all proteins that will be analyzed. All msa files should be stored resources/query_fasta. A few example of msa files are available in the repository.
 - All other parameters for variety number of rules inside Snakefile. You can easily changes the parameter.
 ## Cluster
 - There is a single file (config/slurm_truba/config.yaml) for batch submission. You need to make proper changes for your HPC environment. An example for Truba HPC (config.yaml) is given, please use proper partition name for your requirements.
