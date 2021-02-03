@@ -6,7 +6,7 @@ rule get_blasthits:
     output:
         "{output_folder}/results/{msa_name}/1_blastp/{msa_name}_blasthits.fasta",
     resources:
-        time_min=300,mem_mb=10240
+        time_min=300
     conda:
         "../envs/python.yml"
     log:
