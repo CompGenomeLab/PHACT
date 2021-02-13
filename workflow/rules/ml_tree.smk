@@ -14,6 +14,7 @@ rule ml_tree:
         "../envs/raxml-ng.yml"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_ml_tree.out"
+    cache: True
     resources:
         time_min=7200,cpus=12
     shell:

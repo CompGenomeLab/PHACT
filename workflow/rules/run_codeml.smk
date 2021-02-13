@@ -12,6 +12,7 @@ rule run_codeml:
         "{workdir}/workflow/logs/rules/{query_fasta}_run_codeml.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_run_codeml.out"
+    cache: True
     resources:
         time=1200
     shell:

@@ -9,6 +9,7 @@ rule msa:
         "{workdir}/workflow/logs/rules/{query_fasta}_msa.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_msa.out"
+    cache: True
     resources:
         cpus=8
     shell:

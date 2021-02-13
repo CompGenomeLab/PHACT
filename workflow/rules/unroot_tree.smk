@@ -9,5 +9,6 @@ rule unroot_tree:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_unroot_tree.out"
     conda:
         "../envs/r-base.yml"
+    cache: True
     shell:
         "Rscript scripts/unroot_tree.R {input.input_tree} 2> {log}"

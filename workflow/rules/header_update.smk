@@ -9,5 +9,6 @@ rule header_update:
         "{workdir}/workflow/logs/rules/{query_fasta}_header_update.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_header_update.out"
+    cache: True
     shell:
         "python3 scripts/change_fasta_header.py {input.blasthit_file} {output.new_header_fasta} 2> {log}"

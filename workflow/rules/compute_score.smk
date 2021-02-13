@@ -13,6 +13,7 @@ rule compute_score:
         "{workdir}/workflow/logs/rules/{query_fasta}_{pattern}_compute_score.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_{pattern}_compute_score.out"
+    cache: True
     conda:
         "../envs/r-base.yml"
     shell:

@@ -8,6 +8,7 @@ rule blastp:
         "{workdir}/workflow/logs/rules/{query_fasta}_blastp.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_blastp.out"
+    cache: True
     conda:
         "../envs/blastp.yml"
     shell:
