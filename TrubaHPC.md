@@ -34,8 +34,15 @@ $ mamba create -c conda-forge -c bioconda -n snakemake snakemake
 $ source ~/miniconda3/etc/profile.d/conda.sh \
 $ conda activate snakemake \
 $ snakemake --version 
+ 
+**Caching between-workflow is an important functionality which avoids redundant computations if rules have already performed**\
+- Snakemake 5.32 seems to not have a support caching between-workflow for cluster submission. Therefore, adding --cache parameter at 666th line on the following python file is required. Additionally, the path, hashed of input, sw, parameters is stored, should be set.\
+$ vi ~/miniconda3/envs/snakemake/lib/python3.9/site-packages/snakemake/executors/__init__.py\
+                    "--nocolor **--cache** --notemp --no-hooks --nolock "
+- export SNAKEMAKE_OUTPUT_CACHE=/truba/home/emrah/snakemake-cached/ 
 
- - If you submit batchs for levrek1, Truba HPC, you have to do following steps, for blastb and paml. For other HPC, you need to put required files manually.
+ - If you submit batchs for levrek1, Truba HPC, you have to do following steps, for blastb and paml. For other HPC, you need to put required files manually.\
+
 ## Blastdb
 - You need to put **all_eu.fasta** file under **resources/blastdb** folder for alignment. \
 $ cd resources \
@@ -71,7 +78,7 @@ default-resources: [cpus=4, time_min=9600]
 **$ cd phylogeny-snakemake** \
 **$ pwd** # set workdir inside config/config.yml file with this path \
 **$ cd workflow** \
-**$ snakemake --use-conda --profile ../config/slurm_truba --dry-run**
+**$ snakemake --use-conda --cache --profile ../config/slurm_truba --dry-run**
 
 
 ```
@@ -91,12 +98,12 @@ Job counts:
 	31
 This was a dry-run (flag -n). The order of jobs does not reflect the order of execution.
 ```
-**$ snakemake --use-conda --profile ../config/slurm_truba** \
+**$ snakemake --use-conda --cache --profile ../config/slurm_truba** \
 Please pay attention to the following points for running snakemake workflow on HPC.
 - use keep-going parameters to proceed running independent jobs in case of any failure on a task. This option allows submitting jobs for other proteins, while the consequtive jobs are not submitted for the protein that we observed a failure.
 - use screen or execute the snakemake command in background. Otherwise, the next jobs are not submitted when we close the terminal or lost connection to the user interface. This is especially useful for long set of runs in workflow. If you do not know how to use screen in linux, you can execute the command as following and follow the output under .snakemake/log/ folder.\
 
-**$ nohup snakemake --use-conda --profile ../config/slurm_truba --keep-going  > /dev/null 2>&1 &**
+**$ nohup snakemake --use-conda --cache --profile ../config/slurm_truba --keep-going  > /dev/null 2>&1 &**
 
 
 
