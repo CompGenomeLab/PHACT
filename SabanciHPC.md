@@ -45,7 +45,6 @@ The content of config.yml under config folder indicates the name of proteins ana
 
 **$ cd phylogeny-snakemake** \
 **$ pwd** # set workdir inside config/config.yml file with this path \
-**$ module load snakemake-5.23.0 # to load snakemake into your environment**\
 **$ cd workflow** \
 **$ snakemake --use-conda --cache --profile ../config/slurm_sabanci --dry-run**
 
