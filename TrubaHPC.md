@@ -39,7 +39,7 @@ $ snakemake --version
 - Snakemake 5.32 seems to not have a support caching between-workflow for cluster submission. Therefore, adding --cache parameter at 666th line on the following python file is required. Additionally, the path, hashed of input, sw, parameters are stored, should be set.\
 $ vi ~/miniconda3/envs/snakemake/lib/python3.9/site-packages/snakemake/executors/\_\_init\_\_.py\
                     "--nocolor **--cache** --notemp --no-hooks --nolock "
-- export SNAKEMAKE_OUTPUT_CACHE=/truba/home/emrah/shared/snakemake-cached
+- $ export SNAKEMAKE_OUTPUT_CACHE=/truba/home/emrah/shared/snakemake-cached
 
  - If you submit batchs for levrek1, Truba HPC, you have to do following steps, for blastb and paml. For other HPC, you need to put required files manually.\
 
