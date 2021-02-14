@@ -28,7 +28,7 @@ $ conda --help
 $ conda install -c conda-forge mamba 
 
 **to install snakemake via mamba**\
-$ mamba create -c conda-forge -c bioconda -n snakemake snakemake 
+$ mamba create -c conda-forge -c bioconda -n snakemake snakemake=5.32.0 
 
 **Conda and snakemake are ready for job submission. Run followings to activate snakemake for each login**\
 $ source ~/miniconda3/etc/profile.d/conda.sh \
