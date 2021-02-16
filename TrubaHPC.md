@@ -36,10 +36,12 @@ $ conda activate snakemake \
 $ snakemake --version 
  
 **Caching between-workflow is an important functionality which avoids redundant computations if rules have already performed**\
-- Snakemake 5.32 seems to not have a support caching between-workflow for cluster submission. Therefore, adding --cache parameter at 666th line on the following python file is required. Additionally, the path, hashed of input, sw, parameters are stored, should be set.\
+- Snakemake 5.32 seems to not have a support caching between-workflow for cluster submission. Therefore, adding --cache parameter at 666th line on the following python file is required. Additionally, the path, hashed of input-sw-parameters are stored, should be set.\
 $ vi ~/miniconda3/envs/snakemake/lib/python3.9/site-packages/snakemake/executors/\_\_init\_\_.py\
                     "--nocolor **--cache** --notemp --no-hooks --nolock "
 - $ export SNAKEMAKE_OUTPUT_CACHE=/truba/home/emrah/shared/snakemake-cached
+- Finally, getting previously computed output using caching on cluster, you need to make following change (change if not -> if) at 798th line on ~/miniconda3/envs/snakemake/lib/python3.9/site-packages/snakemake/io.py file. Otherwise, it raises MissingOutputException because of symbolic link.\
+		    "if (is_flagged(f, "pipe") and ignore_pipe)"   
 
  - If you submit batchs for levrek1, Truba HPC, you have to do following steps, for blastb and paml. For other HPC, you need to put required files manually.\
 
