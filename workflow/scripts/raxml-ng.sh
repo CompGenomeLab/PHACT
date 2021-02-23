@@ -7,8 +7,6 @@ raxml_seed=$4
 output_tree=$5
 tree_num=$6
 
-module load raxml-ng-0.9.0
-
 # recommended # threads
 thread_num=`raxml-ng --parse --msa $trimmed_msa --model $raxml_model --nofile|grep "Recommended number of threads"|awk -F: {'print $2'}| xargs`
 echo "Recommended number of thread: $thread_num"

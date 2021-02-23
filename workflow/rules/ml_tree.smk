@@ -5,6 +5,8 @@ rule ml_tree:
         bestTree = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.bestTree",
     params:
         raxml_out_name = "{query_fasta}",
+    conda:
+        "../envs/raxml-ng.yml"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_fasta}_ml_tree.out"
     cache: True
