@@ -1,8 +1,8 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: "/cta/users/eakkoyun/WORKFOLDER/temp/phylogeny-workflow"
-query_fasta: ["P01008","P68871"]
+workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/210221_test4/phylogeny-snakemake"
+query_fasta: ["P08922","P22304","P13569"]
 
 #blast
 blastdb_folder: "resources/blastdb"
@@ -26,6 +26,7 @@ trimal_method: "-gt 0.8"
 raxml_model: "LG4M"
 raxml_seed: "2"
 raxml_threads: "12"
+raxml_tree_number: "5"
 
 #iqtree
 iqtree_seed: "1234"
