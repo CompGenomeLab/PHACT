@@ -26,7 +26,7 @@ trimal_method: "-gt 0.8"
 raxml_model: "LG4M"
 raxml_seed: "2"
 raxml_threads: "12"
-raxml_tree_number: "5"
+raxml_tree_number: "20"
 
 #iqtree
 iqtree_seed: "1234"
