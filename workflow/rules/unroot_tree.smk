@@ -1,12 +1,12 @@
 rule unroot_tree:
     input:
-        input_tree = "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.bestTree",
+        input_tree = "{workdir}/results/{query_id}/3_mltree/{query_id}.raxml.bestTree",
     output:
-      "{workdir}/results/{query_fasta}/3_mltree/{query_fasta}.raxml.bestTree_unrooted",
+      "{workdir}/results/{query_id}/3_mltree/{query_id}.raxml.bestTree_unrooted",
     log:
-        "{workdir}/workflow/logs/rules/{query_fasta}_unroot_tree.err"
+        "{workdir}/workflow/logs/rules/{query_id}_unroot_tree.err"
     benchmark:
-        "{workdir}/workflow/logs/benchmarks/{query_fasta}_unroot_tree.out"
+        "{workdir}/workflow/logs/benchmarks/{query_id}_unroot_tree.out"
     conda:
         "../envs/r-base.yml"
     cache: True

@@ -11,3 +11,4 @@ dependencies:
   - r-tidytree = 0.3.3
   - r-stringr = 1.4.0
   - r-dplyr = 1.0.2
+  - r-bio3d = 2.4.1

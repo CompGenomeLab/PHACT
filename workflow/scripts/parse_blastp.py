@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 
 
 def get_fasta_dict(fasta_file):
@@ -19,7 +20,7 @@ def get_fasta_dict(fasta_file):
 
 
 
-def parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity,max_identity):
+def parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity):
     blast_list = []
     with open(blastp_out_file,'r') as filein_:
         for line in filein_:
@@ -36,7 +37,7 @@ def parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity,m
                             e_value = float(line.split("Expect = ")[1].split(",")[0])
                             identity_line = next(filein_)
                             identity = float(identity_line.split("Identities = ")[1].split("(")[1].split("%")[0])
-                            if e_value < float(max_e_value) and float(max_identity)>identity>float(min_identity):
+                            if e_value < float(max_e_value) and identity>float(min_identity):
                                 #print(best_hit)
                                 blast_list.append(best_hit)
     return blast_list
@@ -48,9 +49,16 @@ def write_to_file(blast_list,all_eu_file,blastp_out_file,query_fasta):
         for k,v in all_eu_dict.items():
             #print(k.split(" ")[0])
             if k.split(" ")[0] in blast_list:
-                f.write(">"+k + "\n" + v +"\n")
+                new_k = k.split(" ")[0]+"_"+k.split("OX=")[1].split(" ")[0]
+                new_k = re.sub(r'[^\w>]', '_',new_k)
+                f.write(">"+new_k + "\n" + v +"\n")
         for h,s in query_fasta_dict.items():
-            f.write(">"+h + "\n" + s +"\n")
+            if h.split(" ")[0] in blast_list:
+                pass
+            else:
+                new_h = h.split(" ")[0]+"_"+h.split("OX=")[1].split(" ")[0]
+                new_h = re.sub(r'[^\w>]', '_',new_h)
+                f.write(">"+new_h + "\n" + s +"\n")
     f.close()
 
 
@@ -59,8 +67,8 @@ if __name__ == "__main__":
     blast_hit_number = sys.argv[2]
     max_e_value = sys.argv[3]
     min_identity = sys.argv[4]
-    max_identity = sys.argv[5]
-    blastdb_file = sys.argv[6]
-    query_fasta = sys.argv[7]
-    blast_list =  parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity,max_identity)
+    blastdb_file = sys.argv[5]
+    query_fasta = sys.argv[6]
+    blast_list =  parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity)
     write_to_file(blast_list,blastdb_file,blastp_out_file,query_fasta)
+

@@ -30,8 +30,9 @@ def get_sequences_without_gap(seqDict,indices):
 
 
 
-def write_new_fasta(new_seqDict,fasta_file):
-    with open (fasta_file.split("_blasthits_new_header_msa")[0]+"_nogap_msa.fasta",'w') as new_file:
+def write_new_fasta(new_seqDict,fasta_file,output_file):
+    #with open (fasta_file.split("_blasthits_new_header_msa")[0]+"_nogap_msa.fasta",'w') as new_file:
+    with open (output_file,'w') as new_file:
         #print(new_file)
         for newheader,value in  new_seqDict.items():
             new_value = re.sub(r'[BXJZ]', '-',value)
@@ -43,9 +44,10 @@ def write_new_fasta(new_seqDict,fasta_file):
 if __name__ == "__main__":
     query_file = sys.argv[1]
     fasta_file= sys.argv[2]
+    output_file= sys.argv[3]
     human_id= get_human_id(query_file)
     seqDict = get_fasta_dict(fasta_file)
     gap_indices = get_gap_positions(seqDict,human_id)
     new_seqDict = get_sequences_without_gap(seqDict,gap_indices)
-    write_new_fasta(new_seqDict,fasta_file)
+    write_new_fasta(new_seqDict,fasta_file,output_file)
 

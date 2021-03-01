@@ -1,15 +1,15 @@
 rule remove_gaps:
     input:
-        query_file ="{workdir}/resources/query_fasta/{query_fasta}.fasta",
-        msa_file = "{workdir}/results/{query_fasta}/2_msa/{query_fasta}_blasthits_new_header_msa.fasta",
+        query_file = "{workdir}/results/{query_id}/1_psiblast/{query_id}.fasta",
+        msa_file = "{workdir}/results/{query_id}/2_msa/{query_id}_blasthits_msa.fasta",
     output:
-        no_gap_file = "{workdir}/results/{query_fasta}/2_msa/{query_fasta}_nogap_msa.fasta",
+        no_gap_file = "{workdir}/results/{query_id}/2_msa/{query_id}_nogap_msa.fasta",
     conda:
-        "../envs/python.yml"
+        "../envs/prune.yml"
     log:
-        "{workdir}/workflow/logs/rules/{query_fasta}_remove_gaps.err"
+        "{workdir}/workflow/logs/rules/{query_id}_remove_gaps.err"
     benchmark:
-        "{workdir}/workflow/logs/benchmarks/{query_fasta}_remove_gaps.out"
+        "{workdir}/workflow/logs/benchmarks/{query_id}_remove_gaps.out"
     cache: True
     shell:
-        "python3 scripts/remove_gaps.py {input.query_file} {input.msa_file} 2> {log}"
+        "python3 scripts/remove_gaps.py {input.query_file} {input.msa_file} {output.no_gap_file} 2> {log}"

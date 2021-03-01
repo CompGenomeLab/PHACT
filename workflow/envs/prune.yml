@@ -1,0 +1,8 @@
+name: ete3 
+channels:
+  - etetoolkit
+  - python
+  - bioconda
+dependencies:
+  - ete3 =3.1.1
+  - python =3.7.4

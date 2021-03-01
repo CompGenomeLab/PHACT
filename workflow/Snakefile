@@ -2,16 +2,15 @@ configfile: "../config/config.yml"
 
 rule all:
     input:
-        expand("{workdir}/results/{query_fasta}/5_scores/{query_fasta}_wol_param_{pattern}.csv",workdir=config["workdir"], query_fasta=config["query_fasta"],pattern=config["pattern"]),
-        expand("{workdir}/results/{query_fasta}/5_scores/{query_fasta}_wl_param_{pattern}.csv",workdir=config["workdir"], query_fasta=config["query_fasta"],pattern=config["pattern"]),
+        expand("{workdir}/results/{query_id}/5_raxmlng_ancestral_scores/{query_id}_wl_param_{pattern}.csv",workdir=config["workdir"], query_id=config["query_ids"],pattern=config["pattern"]),
 
-include : "rules/blastp.smk"
+include : "rules/query_fasta.smk"
+include : "rules/psiblast.smk"
 include : "rules/get_blasthits.smk"
-include : "rules/header_update.smk"
 include : "rules/msa.smk"
 include : "rules/trim_msa.smk"
-include : "rules/remove_gaps.smk"
 include : "rules/ml_tree.smk"
 include : "rules/unroot_tree.smk"
-include : "rules/run_codeml.smk"
-include : "rules/compute_score.smk"
+include : "rules/remove_gaps.smk"
+include : "rules/raxmlng_ancestral.smk"
+include : "rules/compute_raxml_anc_score.smk"
