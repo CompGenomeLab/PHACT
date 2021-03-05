@@ -1,8 +1,8 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/010321_test/phylogeny-snakemake"
-query_ids: ["P08922","P22304","P13569"]
+workdir: "/cta/users/eakkoyun/WORKFOLDER/PROD/run_010321/phylogeny-snakemake"
+query_ids: ["Q6ZUB1", "P10635", "Q12756", "P16278", "P11055", "Q9Y5Z9", "O95278", "P50747", "P20823", "Q9GZU5", "Q9Y6K1", "P33261", "P01266", "P07477", "Q99959", "P17661", "P22033", "P02671", "P31327", "O75503", "O95972", "Q16281", "P51798", "P20930", "Q6NSW7", "Q9HC21"]
 
 #blast
 blastdb_folder: "resources/blastdb"
@@ -25,7 +25,7 @@ trimal_method: "-gappyout"
 
 #tree:
 raxml_model: "LG4X"
-raxml_seed: "2"
+raxml_seed: "8"
 raxml_threads: "1"
 raxml_tree_number: "20"
 
@@ -57,6 +57,6 @@ weights: "0.1,0.5,0,1,2,3,5,mean,median,X,CountNodes_1,CountNodes_2,CountNodes_3
 pattern: "CountNodes_1"
 
 #raxmlng_ancestral
-raxmlng_ancestral_model: "LG4M"
+raxmlng_ancestral_model: "LG4X"
 raxml_ancestral_threads: "12"
 
