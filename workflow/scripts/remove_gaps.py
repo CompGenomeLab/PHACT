@@ -30,10 +30,7 @@ def get_sequences_without_gap(seqDict,indices):
     return new_seqDict
 
 
-
-
 def write_new_fasta(new_seqDict,fasta_file,tree_file,output_file):
-    #with open (fasta_file.split("_blasthits_new_header_msa")[0]+"_nogap_msa.fasta",'w') as new_file:i
     t = Tree(tree_file,format=1)
     leaves = []
     for leaf in t:
@@ -41,8 +38,9 @@ def write_new_fasta(new_seqDict,fasta_file,tree_file,output_file):
     with open (output_file,'w') as new_file:
         #print(new_file)
         for newheader,value in  new_seqDict.items():
-            new_value = re.sub(r'[BXJZ]', '-',value)
-            new_file.write(">" +newheader+"\n" + new_value+ "\n")
+            if newheader in leaves:
+                new_value = re.sub(r'[BXJZ]', '-',value)
+                new_file.write(">" +newheader+"\n" + new_value+ "\n")
     new_file.close()
 
 
@@ -57,4 +55,3 @@ if __name__ == "__main__":
     gap_indices = get_gap_positions(seqDict,human_id)
     new_seqDict = get_sequences_without_gap(seqDict,gap_indices)
     write_new_fasta(new_seqDict,fasta_file,tree_file,output_file)
-
