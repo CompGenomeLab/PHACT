@@ -49,7 +49,7 @@ if __name__ == "__main__":
     tree_file = sys.argv[1]
     msa_file = sys.argv[2]
     no_outlier_tree = sys.argv[3]
-    no_outlier_msa = = sys.argv[4]
+    no_outlier_msa = sys.argv[4]
     leaf_lengths = get_leaf_lenghts(tree_file)
     no_outliers_list = get_outliers(leaf_lengths)
     remove_outliers(tree_file,msa_file,no_outliers_list,no_outlier_tree,no_outlier_msa)
