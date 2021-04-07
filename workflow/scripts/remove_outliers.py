@@ -15,12 +15,11 @@ def get_leaf_lenghts(tree_file):
     #print(type(leaf_lengths))
     return leaf_lengths
 
-def get_outliers(leaf_lengths):
+def get_outliers(leaf_lengths,max_deviations):
     df = np.array(leaf_lengths)
     mean = np.mean(df)
     standard_deviation = np.std(df)
     distance_from_mean = abs(df - mean)
-    max_deviations = 1
     not_outlier = distance_from_mean < max_deviations * standard_deviation
     no_outliers = df[not_outlier]
     no_outliers_list = no_outliers.tolist()
@@ -50,8 +49,9 @@ if __name__ == "__main__":
     msa_file = sys.argv[2]
     no_outlier_tree = sys.argv[3]
     no_outlier_msa = sys.argv[4]
+    max_deviations = sys.argv[5]
     leaf_lengths = get_leaf_lenghts(tree_file)
-    no_outliers_list = get_outliers(leaf_lengths)
+    no_outliers_list = get_outliers(leaf_lengths,max_deviations)
     remove_outliers(tree_file,msa_file,no_outliers_list,no_outlier_tree,no_outlier_msa)
 
 
