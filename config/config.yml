@@ -1,8 +1,10 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: "/cta/users/eakkoyun/WORKFOLDER/PROD/run_010321/phylogeny-snakemake"
-query_ids: ["Q6ZUB1", "P10635", "Q12756", "P16278", "P11055", "Q9Y5Z9", "O95278", "P50747", "P20823", "Q9GZU5", "Q9Y6K1", "P33261", "P01266", "P07477", "Q99959", "P17661", "P22033", "P02671", "P31327", "O75503", "O95972", "Q16281", "P51798", "P20930", "Q6NSW7", "Q9HC21"]
+workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/120421_test/phylogeny-snakemake"
+query_ids: ["P35520", "P63000"]
+#query_ids: ["P16157", "P22105"]
+
 
 #blast
 blastdb_folder: "resources/blastdb"
@@ -25,12 +27,15 @@ trimal_method: "-gappyout"
 
 #tree:
 raxml_model: "LG4X"
-raxml_seed: "8"
+raxml_seed: "2"
 raxml_threads: "1"
 raxml_tree_number: "20"
 
 #iqtree
 iqtree_seed: "1234"
+
+#outliers
+max_deviations: "1"
 
 #codeml:
 aa_dist: "0"
@@ -39,7 +44,7 @@ seqtype: "2"
 verbose: "2"
 noisy: "9"
 clock: "0"
-model: "1"
+model: "2"
 icode: "0"
 Mgene: "0"
 fix_alpha: "0"
@@ -53,10 +58,10 @@ cleandata: "0"
 method: "1" 
 
 #phylas
-weights: "0.1,0.5,0,1,2,3,5,mean,median,X,CountNodes_1,CountNodes_2,CountNodes_3,CountNodes_4"
+weights: "0.1,0.5,0,1,2,3,5,mean,median,X,CountNodes_1,CountNodes_2,CountNodes_3,CountNodes_4,MinThreshold,MinThreshold_Gauss"
 pattern: "CountNodes_1"
 
 #raxmlng_ancestral
 raxmlng_ancestral_model: "LG4X"
-raxml_ancestral_threads: "12"
+raxml_ancestral_threads: "2"
 

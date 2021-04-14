@@ -12,7 +12,7 @@ from scipy.stats import iqr
 def get_leaf_lenghts(tree_file):
     t = Tree(tree_file,format=1)
     leaf_lengths = [leaf.dist for leaf in t.get_leaves()]
-    #print(type(leaf_lengths))
+    print(type(leaf_lengths))
     return leaf_lengths
 
 def get_outliers(leaf_lengths,max_deviations):
@@ -49,10 +49,11 @@ if __name__ == "__main__":
     msa_file = sys.argv[2]
     no_outlier_tree = sys.argv[3]
     no_outlier_msa = sys.argv[4]
-    max_deviations = sys.argv[5]
+    max_deviations = int(sys.argv[5])
     leaf_lengths = get_leaf_lenghts(tree_file)
     no_outliers_list = get_outliers(leaf_lengths,max_deviations)
     remove_outliers(tree_file,msa_file,no_outliers_list,no_outlier_tree,no_outlier_msa)
+
 
 
 

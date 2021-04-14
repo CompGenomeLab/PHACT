@@ -1,0 +1,11 @@
+name: remove_outlier 
+channels:
+  - etetoolkit
+  - python
+  - bioconda
+  - conda-forge 
+dependencies:
+  - ete3 =3.1.1
+  - python =3.7.4
+  - pandas =1.2.3
+
