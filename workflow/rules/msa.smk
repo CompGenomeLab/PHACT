@@ -11,6 +11,6 @@ rule msa:
         "{workdir}/workflow/logs/benchmarks/{query_id}_msa.out"
     cache: True
     resources:
-        cpus=8
+        cpus=4
     shell:
         "mafft{config[mafft_method]} --thread {resources.cpus} {input.fasta} > {output.msa_file} 2> {log}"
