@@ -11,6 +11,7 @@ rule prune:
         "{workdir}/workflow/logs/rules/{query_id}_pruned.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_pruned.out"
+    cache: True
     conda:
         "../envs/prune.yml"
     shell:
