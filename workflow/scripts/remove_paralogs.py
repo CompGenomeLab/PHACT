@@ -1,4 +1,6 @@
 import sys
+import os
+import re
 import ete3 
 from ete3 import Tree, PhyloTree
 from fasta_dict import *
