@@ -12,6 +12,7 @@ rule pruned_raxmlng_ancestral:
         pruned_raxml_ancestral_out_name = "{workdir}/results/{query_id}/7_pruned_raxmlng_ancestral/pruned_{query_id}",
     log:
         "{workdir}/workflow/logs/rules/{query_id}_pruned_raxmlng_ancestral.err"
+    cache: True
     conda:
         "../envs/raxml-ng.yml"
     benchmark:

@@ -13,6 +13,7 @@ rule pruned_raxml_anc_score:
         "{workdir}/workflow/logs/rules/{query_id}_pruned_raxmlanc_{pattern}_compute_score.err"
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_pruned_raxmlanc_{pattern}_compute_score.out"
+    cache: True
     conda:
         "../envs/r-base.yml"
     shell:
