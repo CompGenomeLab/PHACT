@@ -1,8 +1,8 @@
 rule unroot_tree:
     input:
-        input_tree = "{workdir}/results/{query_id}/3_mltree/{query_id}.no_outlier.nwk",
+        input_tree = "{workdir}/results/{query_id}/3_mltree/{query_id}.raxml.bestTree"
     output:
-      "{workdir}/results/{query_id}/3_mltree/{query_id}.no_outlier.nwk_unrooted",
+      "{workdir}/results/{query_id}/3_mltree/{query_id}.raxml.bestTree_unrooted",
     log:
         "{workdir}/workflow/logs/rules/{query_id}_unroot_tree.err"
     benchmark:

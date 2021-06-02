@@ -1,9 +1,8 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/120421_test/phylogeny-snakemake"
-query_ids: ["P35520", "P63000"]
-#query_ids: ["P16157", "P22105"]
+workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/020621_test/phylogeny-snakemake"
+query_ids: ["P13942", "P16157"]
 
 
 #blast

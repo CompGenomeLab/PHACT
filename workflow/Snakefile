@@ -1,8 +1,8 @@
+
 configfile: "../config/config.yml"
 
 rule all:
     input:
-        expand("{workdir}/results/{query_id}/8_pruned_raxmlng_ancestral_scores/pruned_{query_id}_wol_param_{pattern}.csv",workdir=config["workdir"], query_id=config["query_ids"],pattern=config["pattern"]),
         expand("{workdir}/results/{query_id}/5_raxmlng_ancestral_scores/{query_id}_wl_param_{pattern}.csv",workdir=config["workdir"], query_id=config["query_ids"],pattern=config["pattern"]),
 
 include : "rules/query_fasta.smk"
@@ -12,11 +12,7 @@ include : "rules/msa.smk"
 include : "rules/trim_msa.smk"
 include : "rules/ml_tree.smk"
 include : "rules/remove_gaps.smk"
-include : "rules/remove_outliers.smk"
-include : "rules/prune.smk"
 include : "rules/unroot_tree.smk"
 include : "rules/raxmlng_ancestral.smk"
 include : "rules/compute_raxml_anc_score.smk"
-include : "rules/unroot_pruned_tree.smk"
-include : "rules/pruned_raxmlng_ancestral.smk"
-include : "rules/pruned_raxmlng_ancestral_score.smk"
+

@@ -1,8 +1,8 @@
 rule unroot_pruned_tree:
     input:
-        input_tree = "{workdir}/results/{query_id}/6_pruned_msa_tree/{query_id}.pruned.no_outlier",
+        input_tree = "{workdir}/results/{query_id}/6_pruned_msa_tree/{query_id}.pruned",
     output:
-        "{workdir}/results/{query_id}/6_pruned_msa_tree/{query_id}.pruned.no_outlier_unrooted",
+        "{workdir}/results/{query_id}/6_pruned_msa_tree/{query_id}.pruned_unrooted",
     log:
         "{workdir}/workflow/logs/rules/{query_id}_pruned_unroot_tree.err"
     benchmark:
