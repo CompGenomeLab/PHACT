@@ -1,7 +1,5 @@
 name: raxml-ng 
 channels:
   - bioconda
-  - conda-forge 
 dependencies:
   - raxml-ng = 1.0.2 
-  - openmpi = 4.0.5 
