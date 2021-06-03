@@ -14,7 +14,6 @@ rule raxml_anc_score:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_raxmlanc_{pattern}_compute_score.out"
     cache: True
-    group: "all_tasks"
     conda:
         "../envs/r-base.yml"
     shell:

@@ -15,7 +15,6 @@ rule raxmlng_ancestral:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_raxmlng_ancestral.out"
     cache: True
-    group: "all_tasks"
     resources:
         cpus=4
     shell:
