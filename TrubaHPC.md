@@ -108,6 +108,14 @@ Please pay attention to the following points for running snakemake workflow on H
 
 **$ nohup snakemake --use-conda --cache --profile ../config/slurm_truba --keep-going --wms-monitor http://ephesus.sabanciuniv.edu:5000 > /dev/null 2>&1 &**
 
+# Run multiple protein within single node (optional)
+- Truba has a new cluster (hamsi), where users submit their jobs requesting 28 cores so we have to run creating ml_tree for multiple proteins within a job.
+- Submitting jobs requesting only 4 cores are allowed to run mid2 partition. The other tasks in the workflow does not take huge amount of CPU computation time. They can be run on mid2 partitions until ml_tree as following.\
+  **$ snakemake --use-conda --cache --profile ../config/slurm_truba --keep-going --until trim_msa**
+- Jobs creating ml tree should be submitted to hamsi partition. Each ml_tree task request 7 cpus, it means that 4 protein can be joined within the single job as following. Do not forget to change partition name to hamsi.\
+**$ snakemake --use-conda --cache --profile ../config/slurm_truba --keep-going --groups somerule=ml_tree --group-components ml_tree=4 --until ml_tree**
+
+
 
 
 
