@@ -12,7 +12,7 @@ rule ml_tree:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_ml_tree.out"
     cache: True
-    group: "all_tasks"
+    group: "ml_tree"
     resources:
         cpus=7
     shell:
