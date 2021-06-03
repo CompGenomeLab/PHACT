@@ -10,6 +10,7 @@ rule query_fasta:
     params:
         query_id = "{query_id}"
     cache: True
+    group: "all_tasks"
     conda:
         "../envs/python.yml"   
     shell:

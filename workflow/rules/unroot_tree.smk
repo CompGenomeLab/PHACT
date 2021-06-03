@@ -10,5 +10,6 @@ rule unroot_tree:
     conda:
         "../envs/r-base.yml"
     cache: True
+    group: "all_tasks"
     shell:
         "Rscript scripts/unroot_tree.R {input.input_tree} 2> {log}"

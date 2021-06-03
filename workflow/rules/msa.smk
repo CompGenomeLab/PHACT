@@ -10,6 +10,7 @@ rule msa:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_msa.out"
     cache: True
+    group: "all_tasks"
     resources:
         cpus=4
     shell:

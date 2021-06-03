@@ -15,7 +15,8 @@ rule raxmlng_ancestral:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_raxmlng_ancestral.out"
     cache: True
+    group: "all_tasks"
     resources:
-        time_min=7200,cpus=4
+        cpus=4
     shell:
         "raxml-ng --ancestral --msa {input.no_gap_msa} --tree {input.unrooted_tree} --model {config[raxmlng_ancestral_model]} --prefix {params.raxml_ancestral_out_name} --threads {resources.cpus}"

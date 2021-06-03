@@ -9,6 +9,7 @@ rule psiblastp:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_psiblastp.out"
     cache: True
+    group: "all_tasks"
     conda:
         "../envs/blastp.yml"
     shell:

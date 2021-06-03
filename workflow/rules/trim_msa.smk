@@ -10,5 +10,6 @@ rule trim_msa:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_trim_msa.out"
     cache: True
+    group: "all_tasks"
     shell:
         "trimal -in {input.msa_file} -out {output.trimmed_msa} {config[trimal_method]} 2> {log}"
