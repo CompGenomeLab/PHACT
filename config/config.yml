@@ -2,6 +2,7 @@ cnfigfile: "config.yml"
 
 #outputs
 workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/020621_test/phylogeny-snakemake"
+archived_path: "/cta/groups/adebali/static/archived"
 query_ids: ["P13942", "P16157"]
 
 
