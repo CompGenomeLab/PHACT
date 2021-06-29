@@ -12,8 +12,7 @@ rule ml_tree:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_ml_tree.out"
     cache: True
-    group: "ml_tree"
     resources:
-        cpus=7
+        cpus=8
     shell:
         "scripts/raxml-ng.sh {input.trimmed_msa}  {config[raxml_model]} {params.raxml_out_name} {config[raxml_seed]} {output.bestTree} {config[raxml_tree_number]} 2>{log}"
