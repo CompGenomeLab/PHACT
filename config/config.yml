@@ -1,10 +1,9 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: "/cta/users/eakkoyun/WORKFOLDER/TEST/020621_test/phylogeny-snakemake"
-archived_path: "/cta/groups/adebali/static/archived"
-query_ids: ["P13942", "P16157"]
-
+workdir: /cta/users/eakkoyun/WORKFOLDER/PROD/run_290621/phylogeny-snakemake
+archived_path: /cta/groups/adebali/static/archived
+query_ids: ['emrah', 'akkoyun', 'ali', 'tuna', 'ayse', 'naz'] 
 
 #blast
 blastdb_folder: "resources/blastdb"
@@ -64,4 +63,3 @@ pattern: "CountNodes_1"
 #raxmlng_ancestral
 raxmlng_ancestral_model: "LG4X"
 raxml_ancestral_threads: "2"
-
