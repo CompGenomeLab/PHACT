@@ -3,7 +3,7 @@ cnfigfile: "config.yml"
 #outputs
 workdir: /cta/users/eakkoyun/WORKFOLDER/PROD/run_290621/phylogeny-snakemake
 archived_path: /cta/groups/adebali/static/archived
-query_ids: ['emrah', 'akkoyun', 'ali', 'tuna', 'ayse', 'naz'] 
+query_ids: ["P13942", "P16157"] 
 
 #blast
 blastdb_folder: "resources/blastdb"
