@@ -1,0 +1,65 @@
+cnfigfile: "config.yml"
+
+#outputs
+workdir: {{ workdir  }}
+archived_path: {{ archived_path }}
+query_ids: {{ query_ids  }} 
+
+#blast
+blastdb_folder: "resources/blastdb"
+blastdb_file: "all_eu.fasta"
+outfmt: "0"
+max_target_seqs: "5000"
+num_iterations: "2"
+
+#parse blast
+blast_hit_number: "1000"
+max_e_value: "0.00001"
+min_identity: "30"
+max_identity: "95"
+
+#alignment
+mafft_method: "-fftns" #if left empty it will be FFT-NS-2
+
+#trim alignment
+trimal_method: "-gappyout"
+
+#tree:
+raxml_model: "LG4X"
+raxml_seed: "2"
+raxml_threads: "1"
+raxml_tree_number: "20"
+
+#iqtree
+iqtree_seed: "1234"
+
+#outliers
+max_deviations: "1"
+
+#codeml:
+aa_dist: "0"
+aa_rate_file: "static/lg_LG.PAML.txt"
+seqtype: "2"
+verbose: "2"
+noisy: "9"
+clock: "0"
+model: "2"
+icode: "0"
+Mgene: "0"
+fix_alpha: "0"
+alpha: "0.5"
+Malpha: "1"
+ncatG: "4"
+getSE: "0" 
+RateAncestor: "1"
+Small_Diff: ".5e-6"
+cleandata: "0"
+method: "1" 
+
+#phylas
+weights: "0.1,0.5,0,1,2,3,5,mean,median,X,CountNodes_1,CountNodes_2,CountNodes_3,CountNodes_4,MinThreshold,MinThreshold_Gauss"
+pattern: "CountNodes_1"
+
+#raxmlng_ancestral
+raxmlng_ancestral_model: "LG4X"
+raxml_ancestral_threads: "2"

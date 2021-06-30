@@ -1,0 +1,4 @@
+cluster: 
+  name: "sabanci" 
+  query_file: "../not_yet_computed"
+  archived_path: "/cta/groups/adebali/static/archived"

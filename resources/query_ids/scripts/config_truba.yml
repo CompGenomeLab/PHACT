@@ -1,0 +1,4 @@
+cluster: 
+  name: "truba" 
+  query_file: "../not_yet_computed"
+  archived_path: "/truba/home/emrah/shared/archived"
