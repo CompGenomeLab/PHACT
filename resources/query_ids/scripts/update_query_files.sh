@@ -1,6 +1,13 @@
-#./update_query_files.sh 2>/dev/null
+#./update_query_files.sh truba  2>/dev/null 
 
-archived_path=/cta/groups/adebali/static/archived 
+cluster_name=$1
+if [ $cluster_name == 'sabanci' ]; then
+        archived_path=/cta/groups/adebali/static/archived
+elif [ $cluster_name == 'truba' ]; then
+        archived_path=/truba/home/emrah/shared/archived
+fi
+
+
 all_query_file=../all
 completed_query_file=../completed
 not_started_yet_query_file=../not_yet_computed
@@ -19,6 +26,8 @@ for protein in `cat $all_query_file`; do
         num_tasks=`ls $archived_path/$protein|wc -l`
         if [ "$num_tasks" -eq "$finished_num_task" ]; then
                 echo "$protein" >> $completed_query_file
+		sed -i -e "/${protein}/d" $sabanci_query_file
+		sed -i -e "/${protein}/d" $truba_query_file
                 let "count_completed=count_completed+1"
         elif grep -Fxq $protein $sabanci_query_file  ||  grep -Fxq $protein $truba_query_file ; then
                 let "count_under_computation=count_under_computation+1"
@@ -27,11 +36,12 @@ for protein in `cat $all_query_file`; do
         	let "count_incompleted=count_incompleted+1"
         fi
 done
-
+num_all=`cat $all_query_file|wc -l`
 num_under_sabanci=`cat $sabanci_query_file|wc -l`
 num_under_truba=`cat $truba_query_file|wc -l`
 
 echo 
+echo "All protein num: $num_all"
 echo "Completed protein num: $count_completed"
 echo "Not computed yet protein num: $count_incompleted"
 echo "Ongoing computation protein num under truba: $num_under_truba, total: $count_under_computation"
