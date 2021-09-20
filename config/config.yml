@@ -1,7 +1,7 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: /cta/users/eakkoyun/WORKFOLDER/PROD/run_290621/phylogeny-snakemake
+workdir: /cta/users/eakkoyun/WORKFOLDER/TEST/FASTTREE/phylogeny-snakemake 
 archived_path: /cta/groups/adebali/static/archived
 query_ids: ["P13942", "P16157"] 
 
@@ -32,6 +32,10 @@ raxml_tree_number: "20"
 
 #iqtree
 iqtree_seed: "1234"
+iqtree_ancestral_model: "LG4X"
+
+#fasttree
+fasttree_model: "-lg"
 
 #outliers
 max_deviations: "1"
