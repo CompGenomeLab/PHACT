@@ -14,6 +14,7 @@ print (query_ids)
 rule all:
     input:
         expand("{workdir}/results/{query_id}/5_raxmlng_ancestral_scores/{query_id}_wl_param_{pattern}.csv",workdir=config["workdir"], query_id=config["query_ids"],pattern=config["pattern"]),
+        expand("{workdir}/results/{query_id}/8_iqtree_ancestral_scores/{query_id}_wol_param_{pattern}.csv",workdir=config["workdir"], query_id=config["query_ids"],pattern=config["pattern"]), 
 
 include : "rules/query_fasta.smk"
 include : "rules/psiblast.smk"
@@ -25,3 +26,7 @@ include : "rules/remove_gaps.smk"
 include : "rules/unroot_tree.smk"
 include : "rules/raxmlng_ancestral.smk"
 include : "rules/compute_raxml_anc_score.smk"
+include : "rules/unroot_fasttree.smk"
+include : "rules/iqtree_anc_score.smk"
+include : "rules/iq_anc.smk"
+include : "rules/fasttree.smk"
