@@ -2,4 +2,4 @@ name: fastree
 channels:
   - bioconda
 dependencies:
-  - iqtree = 2.1.10
+  - fasttree = 2.1.10
