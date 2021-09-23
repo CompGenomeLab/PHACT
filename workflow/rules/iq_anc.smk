@@ -6,7 +6,7 @@ rule iqtree_ancestral:
         ancestral_probabilities = "{workdir}/results/{query_id}/7_iqtree_ancestral/{query_id}_nogap_msa.fasta.state",
         ancestralTree = "{workdir}/results/{query_id}/7_iqtree_ancestral/{query_id}_nogap_msa.fasta.treefile",
     params:
-        iqtree_ancestral_out_name = "{workdir}/results/{query_id}/7_iqtree_ancestral/{query_id}",
+        iqtree_ancestral_out_name = "{workdir}/results/{query_id}/7_iqtree_ancestral/{query_id}_nogap_msa.fasta",
     conda:
         "../envs/iqtree.yml"
     log:
@@ -16,5 +16,5 @@ rule iqtree_ancestral:
     resources:
         cpus=4
     shell:
-        "iqtree2 -s {input.no_gap_msa} -te {input.unrooted_tree} -m {config[iqtree_ancestral_model]} -asr -safe -nt {resources.cpus}"
+        "iqtree2 -redo -s {input.no_gap_msa} -te {input.unrooted_tree} -m {config[iqtree_ancestral_model]} -asr -safe -nt {resources.cpus} --prefix {params.iqtree_ancestral_out_name}"
 
