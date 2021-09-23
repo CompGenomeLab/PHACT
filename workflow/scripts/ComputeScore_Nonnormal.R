@@ -1,8 +1,5 @@
 #!/usr/bin/env Rscript
 library(ape)
-library(Biostrings)
-library(ggplot2)
-library(ggtree)
 library(tidytree)
 library(stringr)
 library(dplyr)
