@@ -3,7 +3,7 @@ cnfigfile: "config.yml"
 #outputs
 workdir: /cta/users/eakkoyun/WORKFOLDER/TEST/FASTTREE/phylogeny-snakemake 
 archived_path: /cta/groups/adebali/static/archived
-query_ids: ["P13942", "P16157"] 
+query_ids: ["O95153", "O60312"] 
 
 #blast
 blastdb_folder: "resources/blastdb"
@@ -61,7 +61,7 @@ cleandata: "0"
 method: "1" 
 
 #phylas
-weights: "0.1,0.5,0,1,2,3,5,mean,median,X,CountNodes_1,CountNodes_2,CountNodes_3,CountNodes_4,MinThreshold,MinThreshold_Gauss"
+weights: "0.1,0.5,0,1,2,3,5,mean,median,X,CountNodes_1,CountNodes_2,CountNodes_3,CountNodes_4,0_MinNode_Mix,0_MinNode_Mix2"
 pattern: "CountNodes_1"
 
 #raxmlng_ancestral
