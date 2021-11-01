@@ -6,7 +6,7 @@ rule query_fasta:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_query_fasta.out"
     params:
-        blastdb = expand("{workdir}/{blastdb_folder}/{blastdb}", workdir=config["workdir"], blastdb_folder=config["blastdb_folder"], blastdb=config["blastdb_file"]),
+        blastdb = expand("{workdir}/{blastdb_folder}/{blastdb}", workdir=config["workdir"], blastdb_folder=config["unified_folder"], blastdb=config["unified_file"]),
         query_id = "{query_id}"
     cache: True
     conda:
