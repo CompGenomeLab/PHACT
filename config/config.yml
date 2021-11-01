@@ -1,13 +1,13 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: /cta/users/eakkoyun/WORKFOLDER/TEST/FASTTREE/phylogeny-snakemake 
-archived_path: /cta/groups/adebali/static/archived
+workdir: /cta/users/eakkoyun/WORKFOLDER/PROD/run_011121/PHACT 
+archived_path: /cta/groups/adebali/static/archived_newdb
 query_ids: ["O95153", "O60312"] 
 
 #blast
-blastdb_folder: "resources/blastdb"
-blastdb_file: "all_eu.fasta"
+blastdb_folder: "resources/blast_database"
+blastdb_file: "uniprot_reference_proteomes_db"
 outfmt: "0"
 max_target_seqs: "5000"
 num_iterations: "2"
