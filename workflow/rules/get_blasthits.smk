@@ -5,7 +5,7 @@ rule get_blasthits:
     output:
         blast_fasta = "{workdir}/results/{query_id}/1_psiblast/{query_id}_blasthits.fasta",
     params:
-        blastdb = expand("{workdir}/{blastdb_folder}/{blastdb}", workdir=config["workdir"], blastdb_folder=config["blastdb_folder"], blastdb=config["blastdb_file"]),
+        blastdb = expand("{workdir}/{blastdb_folder}/{blastdb}", workdir=config["workdir"], blastdb_folder=config["unified_folder"], blastdb=config["unified_file"]),
     resources:
         time_min=300
     conda:
