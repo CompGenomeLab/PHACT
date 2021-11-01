@@ -1,6 +1,6 @@
 rule iqtree_ancestral:
     input:
-        no_gap_msa = "{workdir}/results/{query_id}/2_msa/{query_id}_nogap_msa.fasta",
+        no_gap_msa = "{workdir}/results/{query_id}/2_msa/{query_id}_nogap_msa_fasttree.fasta",
         unrooted_tree = "{workdir}/results/{query_id}/6_fasttree/{query_id}.nwk_unrooted",        
     output:
         ancestral_probabilities = "{workdir}/results/{query_id}/7_iqtree_ancestral/{query_id}_nogap_msa.fasta.state",
