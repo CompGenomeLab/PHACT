@@ -6,6 +6,8 @@ archived_path: /cta/groups/adebali/static/archived_newdb
 query_ids: ["O95153", "O60312"] 
 
 #blast
+unified_folder: "resources/unified_database"
+unified_file: "unified_fasta.fasta"
 blastdb_folder: "resources/blast_database"
 blastdb_file: "uniprot_reference_proteomes_db"
 outfmt: "0"
