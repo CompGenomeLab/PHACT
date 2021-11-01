@@ -1,6 +1,7 @@
 import os
 
 configfile: "../config/config.yml"
+
 path=config["archived_path"]
 
 query_ids=config["query_ids"]
@@ -23,6 +24,7 @@ include : "rules/msa.smk"
 include : "rules/trim_msa.smk"
 include : "rules/ml_tree.smk"
 include : "rules/remove_gaps.smk"
+include : "rules/remove_gaps_fasttree.smk"
 include : "rules/unroot_tree.smk"
 include : "rules/raxmlng_ancestral.smk"
 include : "rules/compute_raxml_anc_score.smk"
