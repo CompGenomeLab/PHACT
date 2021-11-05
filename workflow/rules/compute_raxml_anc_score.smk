@@ -17,4 +17,4 @@ rule raxml_anc_score:
     conda:
         "../envs/r-base.yml"
     shell:
-        "query=`python scripts/get_query.py {params.query_fasta}` && Rscript scripts/ComputeScore_Nonnormal.R {input.tree_file} {input.probabilities} {params.fasta} {params.out} $query {config[weights]} 2>{log}"
+        "query=`python scripts/get_query.py {params.query_fasta}` && Rscript scripts/ComputeScore_Nonnormal_withDiversity_0411.R {input.tree_file} {input.probabilities} {params.fasta} {params.out} $query {config[weights]} 2>{log}"
