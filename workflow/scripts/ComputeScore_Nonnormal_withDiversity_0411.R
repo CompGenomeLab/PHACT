@@ -233,8 +233,8 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
     score_without_leaf[aa_f] <- score_without_leaf[aa_f] + weight_leaf[human_plc]*1
   }
   
-  score_norm <- score/(num_nodes+num_leaves)
-  score_wol_norm <- score_without_leaf/num_nodes
+  score_norm <- score
+  score_wol_norm <- score_without_leaf
   
   kk1 <- sum(score_norm)
   kk2 <- sum(score_wol_norm)
