@@ -245,8 +245,8 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
   sums1_upd <- (-(length(which(score_norm<0.0001))*0.1)/20+0.1)*(sums1)
   sums2_upd <- (-(length(which(score_wol_norm<0.0001))*0.1)/20+0.1)*(sums2)
   scores <- list()
-  scores$score_with_leaf <- (score_norm*0.9 + sums2_upd)/(num_nodes+num_leaves)
-  scores$score_without_leaf <- (score_wol_norm*0.9 + sums2_upd)/num_nodes
+  scores$score_with_leaf <- 1- log((score_norm*0.9 + sums2_upd)/(num_nodes+num_leaves)+10^(-15))/log(10^(-15))
+  scores$score_without_leaf <- 1- log((score_wol_norm*0.9 + sums2_upd)/num_nodes + 10^(-15))/log(10^(-15))
 
   return(scores)
 }
