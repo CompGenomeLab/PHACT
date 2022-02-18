@@ -19,7 +19,6 @@ def get_fasta_dict(fasta_file):
     return fasta_dict
 
 
-
 def parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity):
     blast_list = []
     with open(blastp_out_file,'r') as filein_:
@@ -41,27 +40,32 @@ def parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity):
                                 #print(best_hit)
                                 blast_list.append(best_hit)
     print(blast_list)
+    print("*****") 
     return blast_list
 
 def write_to_file(blast_list,all_eu_file,blastp_out_file,query_fasta):
     query_fasta_dict = get_fasta_dict(query_fasta)
     all_eu_dict = get_fasta_dict(all_eu_file)
-    with open(blastp_out_file.split(".")[0]+".fasta",'w') as f:
-        for k,v in all_eu_dict.items():
-            #print(k.split(" ")[0])
-            if k.split(" ")[0].split("|")[1] in blast_list:
-                print("***")
-                new_k = k.split(" ")[0]+"_"+k.split("OX=")[1].split(" ")[0]
-                new_k = re.sub(r'[^\w>]', '_',new_k)
-                f.write(">"+new_k + "\n" + v +"\n")
-        for h,s in query_fasta_dict.items():
-            if h.split(" ")[0].split("|")[1] in blast_list:
-                pass
-            else:
-                new_h = h.split(" ")[0]+"_"+h.split("OX=")[1].split(" ")[0]
-                new_h = re.sub(r'[^\w>]', '_',new_h)
-                f.write(">"+new_h + "\n" + s +"\n")
-    f.close()
+    all_eu_keys_list = []
+    for k,v in all_eu_dict.items():
+        all_eu_keys_list.append(k.split(" ")[0].split("|")[1])
+    if set(all_eu_keys_list).issuperset(set(blast_list)):
+        with open(blastp_out_file.split(".")[0]+".fasta",'w') as f:
+            for k,v in all_eu_dict.items():
+                #print(k.split(" ")[0].split("|")[1])
+                if k.split(" ")[0].split("|")[1] in blast_list:
+                    #print("***")
+                    new_k = k.split(" ")[0]+"_"+k.split("OX=")[1].split(" ")[0]
+                    new_k = re.sub(r'[^\w>]', '_',new_k)
+                    f.write(">"+new_k + "\n" + v +"\n")
+            for h,s in query_fasta_dict.items():
+                if h.split(" ")[0].split("|")[1] in blast_list:
+                    pass
+                else:
+                    new_h = h.split(" ")[0]+"_"+h.split("OX=")[1].split(" ")[0]
+                    new_h = re.sub(r'[^\w>]', '_',new_h)
+                    f.write(">"+new_h + "\n" + s +"\n")
+        f.close()
 
 
 if __name__ == "__main__":
@@ -73,4 +77,3 @@ if __name__ == "__main__":
     query_fasta = sys.argv[6]
     blast_list =  parse_blastp_out(blastp_out_file,blast_hit_number,max_e_value,min_identity)
     write_to_file(blast_list,blastdb_file,blastp_out_file,query_fasta)
-
