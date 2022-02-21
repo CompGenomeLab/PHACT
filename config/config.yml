@@ -1,8 +1,9 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: /cta/users/eakkoyun/WORKFOLDER/PROD/run_011121/PHACT 
-archived_path: /cta/groups/adebali/static/archived_newdb
+workdir: /truba/home/emrah/WORKFOLDER/PROD/180222_run/PHACT 
+configfile_path: /truba/home/emrah/WORKFOLDER/PROD/180222_run/PHACT/config/config.yml
+archived_path: /truba/home/emrah/shared/newdb-archived
 query_ids: ["O95153", "O60312"] 
 
 #blast
