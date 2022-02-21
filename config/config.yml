@@ -10,7 +10,7 @@ query_ids: ["O95153", "O60312"]
 unified_folder: "resources/unified_database"
 unified_file: "unified_fasta.fasta"
 blastdb_folder: "resources/blast_database"
-blastdb_file: "uniprot_reference_proteomes_db"
+blastdb_file: "uniprot_reference_proteomes_canonical_db"
 outfmt: "0"
 max_target_seqs: "5000"
 num_iterations: "2"
