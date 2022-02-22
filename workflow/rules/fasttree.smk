@@ -12,8 +12,6 @@ rule fast_tree:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_fasttree_tree.out"
     cache: True
-    resources:
-        cpus=1
     shell:
         "FastTreeMP {config[fasttree_model]} {input.trimmed_msa}  >  {output.bestTree} 2>{log}"
 
