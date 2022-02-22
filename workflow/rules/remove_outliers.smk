@@ -13,7 +13,7 @@ rule remove_outliers:
     benchmark:
         "{workdir}/workflow/logs/benchmarks/{query_id}_no_outlier.out"
     resources:
-        time_min=7200,cpus=1
+        time_min=7200
     shell:
         "python3 scripts/remove_outliers.py {input.input_tree} {input.nogap_msa} {output.no_outlier_tree} {output.no_outlier_msa} {config[max_deviations]} 2> {log}"
 
