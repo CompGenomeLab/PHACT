@@ -169,7 +169,7 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
   diff_nodes <- matrix_prob[chosen_nodes2[,1] - num_leaves, ] - matrix_prob[chosen_nodes2[,2] - num_leaves, ]
 
   
-  ################## weights
+  ################## Weight per node
   weights <- weight_fnc(d_n, d_l, human_plc, parameter, leaves_conn, nodes_conn, mxx) # Updated with related parameters
   weight_leaf <- weights[1:num_leaves]
   weight_node <- tail(weights,num_nodes)
