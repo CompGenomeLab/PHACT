@@ -25,6 +25,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   tr_org <- read.tree(file_nwk)
   x <- read.table(file = file_rst, sep = '\t', header = TRUE, fill = TRUE)
   colnames(x)[4:ncol(x)] <- gsub("p_", replacement = "", x = colnames(x)[4:ncol(x)], fixed = TRUE )
+ 
   # Tree_info: node-node, node-leaf connections
   tree_info <- as.data.frame(as_tibble(tr_org))
   
@@ -39,6 +40,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   # Names of leaves
   names_all <- tr_org[["tip.label"]]
   msa <- msa[names_all, ]
+  
   # Number of total leaves&nodes
   num_leaves <- length(tr_org[["tip.label"]])
   num_nodes <- tr_org[["Nnode"]]
@@ -75,10 +77,10 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   chosen_nodes <- tree_info[(num_leaves+2):(num_leaves +num_nodes),c("parent", "node")]
   leaf_names <- tree_info$label
   
+  # Length of the leaf of human
   human_leaf_len <- as.double(tree_info[human_plc, "branch.length"])
   
   d_n <- dist_node[as.character(node_human),] + human_leaf_len
-  # d_n <- d_n[nn2[,1]]
   d_l <- dist_leaf[leaf_human,]
   
   # chosen_nodes2: ordered connections (for probability differences)
