@@ -117,5 +117,9 @@ To get the same results after running workflow regardless to the platform (local
 # Citing this work
 Kuru, N., Dereli, O., Akkoyun, E., Bircan, A., Tastan, O., & Adebali, O. (2022). PHACT: Phylogeny-aware computing of tolerance for missense mutations. Molecular Biology and Evolution. https://doi.org/10.1093/molbev/msac114
 
+# Data availability
+All data obtained during this study is shared on the following url. 
+https://phact.sabanciuniv.edu/pubs/kuru_mbe_2022/
+
 # Acknowledgement
-This study is supported by Health Institutes of Turkey - TUSEB (Project no: 4587 to O.A.) and EMBO Installation Grant (Project no: 4193 to O.A.) funded by the Scientific and Technological Research Council of Turkey (TÜBİTAK). Most of the numerical calculations reported in this paper were performed at TUBITAK - Turkish Academic Network and Information Center (ULAKBIM), High Performance and Grid Computing Center (TRUBA resources). TOSUN cluster at Sabanci University is also used for computational analyses.
+This work was supported by the Health Institutes of Turkey (TUSEB) (Project no: 4587 to O.A.) and EMBO Installation Grant (Project no: 4163 to O.A.) funded by the Scientific and Technological Research Council of Turkey (TÜBİTAK). Most of the numerical calculations reported in this paper were performed at the High Performance and Grid Computing Center (TRUBA resources) of TÜBITAK. The TOSUN cluster at Sabanci University was also used for computational analyses. We also want to thank Nehircan Özdemir for his art illustration of the PHACT approach.
