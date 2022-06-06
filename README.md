@@ -121,7 +121,7 @@ Kuru, N., Dereli, O., Akkoyun, E., Bircan, A., Tastan, O., & Adebali, O. (2022).
 All data obtained during this study is shared on the following url. 
 https://phact.sabanciuniv.edu/pubs/kuru_mbe_2022/
 
-* Please see Publications/Kuru_etal_2022 to reproduce the figures in PHACT manuscript.
+* Please see Publications/Kuru_etal_2022 folder to reproduce the figures in PHACT manuscript.
 
 # Acknowledgement
 This work was supported by the Health Institutes of Turkey (TUSEB) (Project no: 4587 to O.A.) and EMBO Installation Grant (Project no: 4163 to O.A.) funded by the Scientific and Technological Research Council of Turkey (TÜBİTAK). Most of the numerical calculations reported in this paper were performed at the High Performance and Grid Computing Center (TRUBA resources) of TÜBITAK. The TOSUN cluster at Sabanci University was also used for computational analyses. We also want to thank Nehircan Özdemir for his art illustration of the PHACT approach.
