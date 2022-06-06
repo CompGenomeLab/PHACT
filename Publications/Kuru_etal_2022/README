@@ -8,7 +8,7 @@ Figure 2
 Comparison of PHACT calculations using various weight functions. (A) ROC curve. AUC values are shown. Sensitivity (specificity) on the axis refers to the rate of positive (negative) predictions that are truly positive (negative). (B) PR curve. AUPR values are shown. Precision on the y-axis of the plot refers to the ratio of positive predictions among all predictions that were labeled as positive. Recall is the same as sensitivity. The best performing weight is Max05, with 0.949 AUC and 0.949 AUPR levels.
 
 The scores shown in Figure 2 are computed by using "Figure2_ScoreComputation.R".
-The required inputs are MSA, phylogenetic tree and the ancestral reconstruction (ASR) probabilites per node.
+The required files to run the code are MSA, phylogenetic tree and the ancestral reconstruction (ASR) probabilites per node.
 
 
 Figure 3
@@ -18,14 +18,14 @@ The performance differences between PHACT (Max05) and simple approaches are pres
 values are shown.
 
 The scores shown in Figure 3 are computed by using "Figure3_ScoreComputation.R".
-The required inputs are Multiple Sequence Alignment (MSA) and phylogenetic tree.
+The required files to run the code are Multiple Sequence Alignment (MSA) and phylogenetic tree.
 
 Figure 4
 
 Effects of the different components of PHACT on the performance of the algorithm. (A) and (B): ROC and PR curves for the methods related to the intermediate steps of PHACT. (C) and (D): ROC and PR curves for the final steps of PHACT.
 
-The scores shown in Figure 3 are computed by using "Figure4_ScoreComputation.R".
-The required inputs are MSA, phylogenetic tree and the ancestral reconstruction (ASR) probabilites per node.
+The scores shown in Figure 4 are computed by using "Figure4_ScoreComputation.R".
+The required files to run the code are MSA, phylogenetic tree and the ancestral reconstruction (ASR) probabilites per node.
 
 
 Figure 5
