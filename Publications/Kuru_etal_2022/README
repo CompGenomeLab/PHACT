@@ -3,7 +3,7 @@
 This repository includes the required codes to reproduce the figures at Kuru et al. 2022, https://doi.org/10.1093/molbev/msac114.
 
 
-**Figure 2
+Figure 2
 
 Comparison of PHACT calculations using various weight functions. (A) ROC curve. AUC values are shown. Sensitivity (specificity) on the axis refers to the rate of positive (negative) predictions that are truly positive (negative). (B) PR curve. AUPR values are shown. Precision on the y-axis of the plot refers to the ratio of positive predictions among all predictions that were labeled as positive. Recall is the same as sensitivity. The best performing weight is Max05, with 0.949 AUC and 0.949 AUPR levels.
 
