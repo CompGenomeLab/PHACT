@@ -22,12 +22,10 @@ num_to_aa <- function(num) {
   return(aa)
 }
 
-compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id, pos_chosen) {
+compute_score <- function(file_nwk, file_fasta, output_name, human_id, pos_chosen) {
   
   # Read tree file
   tr_org <- read.tree(file_nwk)
-  x <- read.table(file = file_rst, sep = '\t', header = TRUE, fill = TRUE)
-  colnames(x)[4:ncol(x)] <- gsub("p_", replacement = "", x = colnames(x)[4:ncol(x)], fixed = TRUE )
   
   # Tree_info: node-node, node-leaf connections
   tree_info <- as.data.frame(as_tibble(tr_org))
@@ -39,7 +37,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   # connections_1: Parent node, connections_2: connected node/leaf
   connections_1 <- tree_info$parent
   connections_2 <- tree_info$node
-
+  
   # Names of leaves
   names_all <- tr_org[["tip.label"]]
   msa <- msa[names_all, ]
@@ -62,7 +60,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   names(nodes_raxml) <- tree_info[num_leaves+1:num_nodes, "node"]
   
   # Total number of positions from ancestralProbs file
-  total_pos <- max(x$Site)
+  total_pos <- length(msa[1,])
   
   # Chosen positions (all or some)
   if (pos_chosen[1] == "all"){
@@ -72,7 +70,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
     positions <- pos_chosen
     score_all <- matrix(0, length(positions), 21)
   }
-
+  
   # Connections between leaves & nodes
   chosen_leaves <- tree_info[1:num_leaves,c("parent", "node")]
   # Connections between nodes & nodes
@@ -99,7 +97,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   chosen_nodes2[which(dist_f >= dist_s), 1] <- n1[which(dist_f >= dist_s)]
   chosen_nodes2[which(dist_f >= dist_s), 2] <- n2[which(dist_f >= dist_s)]
   
-  score_norm <- t(mapply(function(ps){position_score(ps, x, msa, num_nodes, num_leaves, total_pos, human_plc,
+  score_norm <- t(mapply(function(ps){position_score(ps, msa, num_nodes, num_leaves, total_pos, human_plc,
                                                      node_human, nodes_raxml, human_leaf_len, dist_node, dist_leaf,
                                                      chosen_leaves, chosen_nodes2, d_n, d_l)}, rep(positions)))
   
@@ -116,26 +114,11 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   
 }
 
-position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_plc, node_human, nodes_raxml, human_leaf_len, dist_node, dist_leaf, chosen_leaves, chosen_nodes2, d_n, d_l) {
+position_score <- function(ps, msa, num_nodes, num_leaves, total_pos, human_plc, node_human, nodes_raxml, human_leaf_len, dist_node, dist_leaf, chosen_leaves, chosen_nodes2, d_n, d_l) {
   position <- ps
   
-  b1 <- position + total_pos*(0:(num_nodes-1))
-  TT <- x[b1,]
-  matrix_prob <- matrix(0, num_nodes, 20)
-  
-  probs <- data.matrix((TT[, (4:ncol(TT))]))
-  rownames(probs) <- NULL
-  rr <- aa_to_num(colnames(x)[4:ncol(TT)])
-  matrix_prob[,rr] <- probs
-  matrix_prob <- matrix_prob[nodes_raxml,]
-  
   position_vec <- msa[, ps]
-  
   position_num <- aa_to_num(position_vec)
-  prob_leaves <- matrix(0, num_leaves, 20)
-  prob_leaves[cbind(which(position_num <= 20), position_num[which(position_num <= 20)])] <- 1
-  
-  gaps <- which(position_num == 21)
   
   ################## Weights per Node
   weights2 <- weight_fnc(d_n, d_l, human_plc, "Max05")
@@ -156,7 +139,6 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
   ref_aa <- position_num[human_plc]
   score_blosum <- Z_prob[ref_aa, ]
   
-  
   # Diversity
   unq <- length(unique(position_num)) - 1*is.element(21,position_num)
   score_div <- matrix(unq, 1, 20)
@@ -164,22 +146,22 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
   # Frequency, Frequency Without Gaps
   score <- matrix(0,1,20)
   for (i in 1:20){
-      score[i] <- sum(position_num == i)
-    }
+    score[i] <- sum(position_num == i)
+  }
   score_freq <- score/length(position_num)
   score_freq_wogap <- score/(length(position_num)-length(which(position_num>20)))
   
   # Weighted Frequency, Weighted Frequency Without Gaps
   score <- matrix(0,1,20)
   for (i in 1:num_leaves){
-      wh_aa <- position_num[i]
-      if (wh_aa<21){
-        score[wh_aa] <- score[wh_aa] + weight_leaf2[i]*1
-      }
+    wh_aa <- position_num[i]
+    if (wh_aa<21){
+      score[wh_aa] <- score[wh_aa] + weight_leaf2[i]*1
+    }
   }
   score_weightedfreq <- score/length(position_num)
   score_weightedfreq_wogap <- score/(length(position_num)-length(which(position_num>20)))
-    
+  
   scores <- list()
   scores$blosum <- score_blosum
   scores$diversity <- score_div
@@ -187,7 +169,7 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
   scores$weightedfreq <- score_weightedfreq
   scores$freqnogap <- score_freq_wogap
   scores$weightedfreqnogap <- score_weightedfreq_wogap
-    
+  
   return(scores)
 }
 
@@ -202,11 +184,11 @@ weight_fnc <- function(d_n, d_l, human_plc, parameter) {
     d_n2 <- d_n2 +1
     weight_node <- 1/d_n2
     weight_leaf <- 1/d_l2
-
+    
   }
   weights = c(weight_leaf, weight_node)
   
   return(weights)
 }
 
-csv_file <- compute_score(file_nwk=args[1],file_rst=args[2],file_fasta=args[3], output_name=args[4],human_id=args[5],'all')
+csv_file <- compute_score(file_nwk=args[1],file_fasta=args[2], output_name=args[3],human_id=args[4],'all')
