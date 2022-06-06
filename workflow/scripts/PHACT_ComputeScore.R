@@ -172,7 +172,7 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
 
   
   ################## Weight per node
-  weights <- weight_fnc(d_n, d_l, human_plc, parameter, leaves_conn, nodes_conn, mxx) # Updated with related parameters
+  weights <- weight_fnc(d_n, d_l, human_plc, parameter, leaves_conn, nodes_conn) # Updated with related parameters
   weight_leaf <- weights[1:num_leaves]
   weight_node <- tail(weights,num_nodes)
   ####################
@@ -227,7 +227,7 @@ position_score <- function(ps, x, msa, num_nodes, num_leaves, total_pos, human_p
   return(scores)
 }
 
-weight_fnc <- function(d_n, d_l, human_plc, parameter, leaves_conn, nodes_conn, mxx) {
+weight_fnc <- function(d_n, d_l, human_plc, parameter, leaves_conn, nodes_conn) {
   if (parameter=="Max05"){
     d_l_n <- d_l[-human_plc]
     min_l <- min(d_l_n)
