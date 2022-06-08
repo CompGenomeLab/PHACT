@@ -128,7 +128,7 @@ compute_score <- function(file_nwk, file_rst, file_fasta, output_name, human_id,
   
   parameters <- unlist(str_split(parameters, pattern = ","))
   
-  score_norm <- t(mapply(function(ps, parameter){position_score(ps, x, msa, num_nodes, num_leaves, total_pos, human_plc, node_human, nodes_raxml, human_leaf_len, dist_node, dist_leaf, parameter, leaves_conn, nodes_conn, chosen_leaves, chosen_nodes2, d_n, d_l)}, rep(positions, length(parameters)), rep(parameters, each = length(positions))))
+  score_norm <- mapply(function(ps, parameter){position_score(ps, x, msa, num_nodes, num_leaves, total_pos, human_plc, node_human, nodes_raxml, human_leaf_len, dist_node, dist_leaf, parameter, leaves_conn, nodes_conn, chosen_leaves, chosen_nodes2, d_n, d_l)}, rep(positions, length(parameters)), rep(parameters, each = length(positions)))
   score_norm_with_leaf <- matrix(unlist(score_norm[ ,1]), nrow = length(positions) * length(parameters), ncol = 20, byrow = TRUE)
   score_norm_with_leaf <- cbind(rep(positions, length(parameters)), score_norm_with_leaf)
 
