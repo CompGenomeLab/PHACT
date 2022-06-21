@@ -5,6 +5,16 @@ library(dplyr)
 library(bio3d)
 args = commandArgs(trailingOnly=TRUE)
 uniprot_id <- args[4]
+save_path <- args[7]
+
+
+if(dir.exists(sprintf("%s", save_path)) == FALSE) {
+  dir.create(sprintf("%s",save_path))
+}
+
+if(dir.exists(sprintf("%s/%s", save_path, uniprot_id)) == FALSE) {
+  dir.create(sprintf("%s/%s",save_path, uniprot_id))
+}
 
 aa_to_num <- function(aa) {
   amino_acids <- c("G", "A", "L", "M", "F", "W", "K", "Q", "E", "S", "P", "V", "I", "C", "Y", "H", "R", "N", "D", "T")
