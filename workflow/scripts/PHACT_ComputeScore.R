@@ -3,6 +3,7 @@ library(tidytree)
 library(stringr)
 library(dplyr)
 library(bio3d)
+
 args = commandArgs(trailingOnly=TRUE)
 uniprot_id <- args[4]
 save_path <- args[7]
