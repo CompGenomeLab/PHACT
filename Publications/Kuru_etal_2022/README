@@ -1,0 +1,50 @@
+# PHACT Figures
+
+This repository includes the required codes to reproduce the figures at Kuru et al. 2022, https://doi.org/10.1093/molbev/msac114.
+
+
+Figure 2
+
+Comparison of PHACT calculations using various weight functions. (A) ROC curve. AUC values are shown. Sensitivity (specificity) on the axis refers to the rate of positive (negative) predictions that are truly positive (negative). (B) PR curve. AUPR values are shown. Precision on the y-axis of the plot refers to the ratio of positive predictions among all predictions that were labeled as positive. Recall is the same as sensitivity. The best performing weight is Max05, with 0.949 AUC and 0.949 AUPR levels.
+
+The scores shown in Figure 2 are computed by using "Figure2_DifferentWeightingFunc.R".
+The required files to run the code are MSA, phylogenetic tree and the ancestral reconstruction (ASR) probabilites per node.
+
+
+Figure 3
+
+Baseline comparisons. 
+The performance differences between PHACT (Max05) and simple approaches are presented. (A) ROC curve. AUC values are shown. (B) PR curve. AUPR
+values are shown.
+
+The scores shown in Figure 3 are computed by using "Figure3_BaselineComparisons.R".
+The required files to run the code are Multiple Sequence Alignment (MSA) and phylogenetic tree.
+
+Figure 4
+
+Effects of the different components of PHACT on the performance of the algorithm. (A) and (B): ROC and PR curves for the methods related to the intermediate steps of PHACT. (C) and (D): ROC and PR curves for the final steps of PHACT.
+
+The scores shown in Figure 4 are computed by using "Figure4_ScoreComputation.R".
+The required files to run the code are MSA, phylogenetic tree and the ancestral reconstruction (ASR) probabilites per node.
+
+
+Figure 5
+
+Discriminative performance comparisons of PHACT, SIFT, and SIFT with PHACT's MSA and PolyPhen-2 (PPH2_HVAR) algorithms. (A) and (B): ROC and PR curves for the DS3 dataset (HCG dataset excluding the PolyPhen-2 training set). (C) and (D): ROC and PR curves for the DS4 dataset (Grimm dataset excluding the PolyPhen-2 training set).
+
+The file consisting of the scores used for Figure 5 can be found in Supplementary Material online.
+To plot the figures in the manuscript, please use "Figure5_Plot.R"
+
+Figure 6
+
+Discriminative performance comparisons of PHACT, SIFT, and SIFT with PHACT's MSA and LIST-S2 algorithms. (A) and (B): ROC and PR curves for the DS5 dataset (HCG dataset excluding the LIST-S2 optimization set). (C) and (D): ROC and PR curves for the DS6 dataset (Grimm dataset excluding the LIST-S2 optimization set).
+
+The file consisting of the scores used for Figure 6 can be found in Supplementary Material online.
+To plot the figures in the manuscript, please use "Figure6_Plot.R"
+
+Figure 7
+
+AUC and AUPR comparisons of PHACT against the statistical pathogenicity prediction algorithms presented in dbNSFP (LIST-S2 (Malhis et al. 2020), phyloP (Pollard et al. 2010), SIFT (Sim et al. 2012), PROVEAN (Choi et al. 2012), SiPhy (Garber et al. 2009), SIFT4G (Vaser et al. 2016), GERP (Davydov et al. 2010), GenoCanyon (Lu et al. 2015), phastCons (Siepel et al. 2005), fitCons (Gulko et al. 2015), and bStatistic (McVicker et al. 2009) on the DS5 (HCG) dataset.
+
+The file consisting of the scores used for Figure 7 can be found in Supplementary Material online.
+To plot the figures in the manuscript, please use "Figure7_Plot.R".
