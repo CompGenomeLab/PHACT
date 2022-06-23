@@ -39,7 +39,7 @@ def write_new_fasta(new_seqDict,fasta_file,tree_file,output_file):
         #print(new_file)
         for newheader,value in  new_seqDict.items():
             if newheader in leaves:
-                new_value = re.sub(r'[BXJZ]', '-',value)
+                new_value = re.sub(r'[BXJZUO#$]', '-',value)
                 new_file.write(">" +newheader+"\n" + new_value+ "\n")
     new_file.close()
 
