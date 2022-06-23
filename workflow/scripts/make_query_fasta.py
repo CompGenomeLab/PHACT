@@ -9,6 +9,7 @@ def make_query_fasta(acc_no,all_eu_file,output_path):
     with open(all_eu_file,'r') as f:
         for line in f:
             if line.startswith('>'):
+                line = line[0] + line[1:].replace('>', '-') 
                 header = line.split(">")[1].strip()
                 if header.split("|")[1].split("|")[0] == acc_no:
                     line = next(f).strip()
@@ -31,6 +32,5 @@ if __name__ == "__main__":
     make_query_fasta(acc_no,all_eu_file,output_path)
     
     
-
 
 
