@@ -6,6 +6,7 @@ def get_fasta_dict(fasta_file):
     with open(fasta_file,'r') as f:
         for line in f:
             if line.startswith('>'):
+                line = line[0] + line[1:].replace('>', '-') 
                 header = line.split(">")[1].strip()
                 fasta_dict[header] = ''
             else:
@@ -17,4 +18,3 @@ def get_fasta_dict(fasta_file):
 
 if __name__ == "__main__":
     fasta_file  = sys.argv[1]
-
