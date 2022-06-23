@@ -13,4 +13,4 @@ rule msa:
     resources:
         cpus=4
     shell:
-        "mafft{config[mafft_method]} --thread {resources.cpus} {input.fasta} > {output.msa_file} 2> {log}"
+        "mafft{config[mafft_method]} --anysymbol --thread {resources.cpus} {input.fasta} > {output.msa_file} 2> {log}"
