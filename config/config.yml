@@ -1,8 +1,8 @@
 cnfigfile: "config.yml"
 
 #outputs
-workdir: /truba/home/emrah/WORKFOLDER/PROD/180222_run/PHACT 
-configfile_path: /truba/home/emrah/WORKFOLDER/PROD/180222_run/PHACT/config/config.yml
+workdir: /truba/home/emrah/WORKFOLDER/PROD/031123_run/PHACT 
+configfile_path: /truba/home/emrah/WORKFOLDER/PROD/031123_run/PHACT/config/config.yml
 archived_path: /truba/home/emrah/shared/newdb-archived
 query_ids: ["O95153", "O60312"] 
 
@@ -35,7 +35,7 @@ raxml_tree_number: "20"
 
 #iqtree
 iqtree_seed: "1234"
-iqtree_ancestral_model: "LG4X"
+iqtree_ancestral_model: "scripts/vals.txt+R4"
 
 #fasttree
 fasttree_model: "-lg"
