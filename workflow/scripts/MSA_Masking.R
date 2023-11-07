@@ -33,27 +33,33 @@ compute_score <- function(file_fasta, output_name, folder_name) {
   
   num_leaves <- length(msa[,1])
   msa_upd <- msa
-  
-  trim_msa <- msa_masking(msa, positions)
-  trim_msa1 <- trim_msa$gaps
-  trim_msa2 <- trim_msa$incomp
-  trim_msa3 <- rownames(msa)[intersect(which(msa[,1]!="M"),which(msa[,1]!="-"))]
-  trim_msa4 <- trim_msa$blocks
-  ####################################################
-  for (i in positions){
-    vec <- c(trim_msa2[which(trim_msa2[,i]!=0),i], trim_msa4[which(trim_msa4[,i]!=0),i])
-    if (i==1){
-      vec <- c(vec, trim_msa3)
-    }
-    if (is.element(human_codeml, vec)){
-      vec <- vec[-which(vec==human_codeml)]
-    }
-    if (length(vec)>0){
-      vec <- unique(vec)
-      msa_upd[t(mapply(function(jj){which(rownames(msa_upd)==vec[jj])}, rep(1:length(vec)))),i] <- "-"
+
+  if (num_leaves<3){
+    print("<3 sequences, not enough data for masking")
+  } else if (total_pos<10){
+    print("<10 positions, not enough data for masking")
+  } else {
+    
+    trim_msa <- msa_masking(msa, positions)
+    trim_msa1 <- trim_msa$gaps
+    trim_msa2 <- trim_msa$incomp
+    trim_msa3 <- rownames(msa)[intersect(which(msa[,1]!="M"),which(msa[,1]!="-"))]
+    trim_msa4 <- trim_msa$blocks
+    ####################################################
+    for (i in positions){
+      vec <- c(trim_msa2[which(trim_msa2[,i]!=0),i], trim_msa4[which(trim_msa4[,i]!=0),i])
+      if (i==1){
+        vec <- c(vec, trim_msa3)
+      }
+      if (is.element(human_codeml, vec)){
+        vec <- vec[-which(vec==human_codeml)]
+      }
+      if (length(vec)>0){
+        vec <- unique(vec)
+        msa_upd[t(mapply(function(jj){which(rownames(msa_upd)==vec[jj])}, rep(1:length(vec)))),i] <- "-"
+      }
     }
   }
-
   vect <- matrix(0, (2*num_leaves), 1)
   names <- rownames(msa_upd)
   k <- 1
