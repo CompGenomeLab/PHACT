@@ -1,6 +1,6 @@
 
 
-** This folder contains the data and code required to reproduce the results of the CAGI6 HMBS challenge. **
+**This folder contains the data and code required to reproduce the results of the CAGI6 HMBS challenge.**
 
 The experimental data is obtained from [MaveDB](https://www.mavedb.org/#/experiments/urn:mavedb:00000108-a). As mentioned in Zhang et al. (2024), mutations with experimental scores over 1.36 were excluded.
 
