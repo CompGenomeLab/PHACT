@@ -7,7 +7,7 @@ The experimental data is obtained from [MaveDB](https://www.mavedb.org/#/experim
 PHACT scores for 3,023 proteins have been available since **18/10/2022** at the following link: [PHACT data](https://aperta.ulakbim.gov.tr/record/240637). Details on how these scores were computed, including the pseudocode of the PHACT approach, can be found in the [PHACT paper](https://doi.org/10.1093/molbev/msac114) [3].
 
 
-We participated in the CAGI6 HMBS challenge with a draft version of our approach. In the published version, we considered both position diversity and implemented a scaling approach on the final score. These results were used in the challenge to assess algorithm success. The rank-based results are presented in the table below:
+We participated in the CAGI6 HMBS challenge with a draft version of our approach. In the published version, we considered both position diversity and implemented a scaling approach on the final score. These results were used in the challenge to assess algorithm success. The rank-based results are presented in the table below.
 
 <p align="center">
   <img src="images/Table.png" alt="Alt text" width="500"/>
