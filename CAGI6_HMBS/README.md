@@ -1,20 +1,20 @@
 
 
-This folder contains the data and codes required to reproduce the results at CAGI6 HMBS challenge.
+** This folder contains the data and code required to reproduce the results of the CAGI6 HMBS challenge. **
 
-The experimental data is obtained from [MaveDB](https://www.mavedb.org/#/experiments/urn:mavedb:00000108-a). As mentioned in Zhang et al., 2024, we excluded mutations with experimental scores over 1.36. 
+The experimental data is obtained from [MaveDB](https://www.mavedb.org/#/experiments/urn:mavedb:00000108-a). As mentioned in Zhang et al. (2024), mutations with experimental scores over 1.36 were excluded.
 
-PHACT score for 3,023 proteins is already available in the following link: [PHACT data](https://aperta.ulakbim.gov.tr/record/240637) since **18/10/2022**.
+PHACT scores for 3,023 proteins have been available since **18/10/2022** at the following link: [PHACT data](https://aperta.ulakbim.gov.tr/record/240637). Details on how these scores were computed, including the pseudocode of the PHACT approach, can be found in the [PHACT paper](https://doi.org/10.1093/molbev/msac114).
 
-The PHACT data is uploaded on .
 
-We participated the CAGI6 HMBS challenge with the draft version of our approach. In the published version, we reproduced the results used in the challange to decide whether an algorithm is successful.
-The rank-based results are given in Table 1.
+We participated in the CAGI6 HMBS challenge with a draft version of our approach. In the published version, we considered both position diversity and implemented a scaling approach on the final score. These results were used in the challenge to assess algorithm success. The rank-based results are presented in the table below:
 
 <p align="center">
   <img src="images/Table.png" alt="Alt text" width="500"/>
 </p>
 
+
+As shown in the table, PHACT outperformed both our draft algorithm and PolyPhen-2, as well as the baseline approach.
 
 
 
