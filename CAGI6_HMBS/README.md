@@ -14,6 +14,9 @@ The rank-based results are given in Table 1.
 ![Tablo](images/Table.png)
 
 
+<img src="images/Table.png" alt="Alt text" width="200"/>
+
+
 
 
 
