@@ -1,9 +1,9 @@
 ### Read the experimental data file
-file_name <- "urn_mavedb_00000108-a-3_scores.csv"
+file_name <- "Data/urn_mavedb_00000108-a-3_scores.csv"
 main <- read.csv(file_name)
 
 ### Three letters code for each amino acid
-thr_let <- read.table("AA_3Let.txt")
+thr_let <- read.table("Data/AA_3Let.txt")
 
 ### Convert experimental results to a compatible format to match with PHACT scores
 vect <- c()
@@ -37,7 +37,7 @@ vect <- as.data.frame(vect)
 colnames(vect) <- c("Id", "Pos", "Ref", "Alt", "Score", "StdErr")
 
 ### Our submission to CAGI6 including draft version of PHACT approach
-submitted <- "/Users/nurdankuru/Downloads/EvoPower_model_1.txt"
+submitted <- "Data/EvoPower_model_1.txt"
 submitted_data <- read.table(submitted)
 vect_sub <- c()
 for (i in 1:length(submitted_data$aa_substitution)){
@@ -88,7 +88,7 @@ vect <- vect2
 vect$SUBMITTED <- vect_sub$Score
 
 ### Get PHACT results
-result_PHACT <- read.csv("P08397_wl_param_0.csv")
+result_PHACT <- read.csv("Data/P08397_wl_param_0.csv")
 result_PHACT <- as.data.frame(result_PHACT)
 
 phact <- c()
