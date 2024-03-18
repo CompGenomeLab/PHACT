@@ -18,8 +18,8 @@ As shown in the table, PHACT outperformed both our draft algorithm and PolyPhen-
 
 **References**
 
-1. Kuru, N., Dereli, O., Akkoyun, E., Bircan, A., Tastan, O., & Adebali, O. (2022). PHACT: Phylogeny-aware computing of tolerance for missense mutations. Molecular Biology and Evolution, 39(6), msac114.
-2. Jing Zhang, Lisa Kinch, Panagiotis Katsonis, Olivier Lichtarge, Milind Jagota, Yun S. Song, Yuanfei Sun, Yang Shen, Nurdan Kuru, Onur Dereli, Ogun Adebali, Muttaqi Ahmad Alladin, Debnath Pal, Emidio Capriotti, Maria Paola Turina, Castrense Savojardo, Pier Luigi Martelli, Giulia Babbi, Samuele Bovo, Zhiqiang Hu, Fabrizio Pucci, Marianne Rooman, Gabriel Cia, Matsvei Tsishyn, Alexey Strokach, Warren van Loggerenberg, Frederick P. Roth, Predrag Radivojac, Steven E. Brenner, Qian Cong, Nick V. Grishin. Assessing predictions on fitness effects of missense variants in HMBS in CAGI6. (Under Review, Human Genetics).
+1. Kuru N., Dereli O., Akkoyun E., Bircan A., Tastan O., & Adebali O. (2022). PHACT: Phylogeny-aware computing of tolerance for missense mutations. Molecular Biology and Evolution, 39(6), msac114.
+2. Zhang J., Kinch L., Katsonis P. Lichtarge O., Jagota M., Song Y., Sun Y., Shen Y., Kuru N., Dereli O., Adebali O., Alladin M.A., Pal D., Capriotti E., Turina M.P., Savojardo C., Martelli P. L., Babbi G., Bovo S., Hu Z., Pucci F., Rooman M., Cia G., Tsishyn M., Strokach A., van Loggerenberg W., Roth F.P., Radivojac P., Brenner S.E., Cong Q., Grishin N.V. (2024). Assessing predictions on fitness effects of missense variants in HMBS in CAGI6.
 3. van Loggerenberg, W., Sowlati-Hashjin, S., Weile, J., Hamilton, R., Chawla, A., Sheykhkarimli, D., ... & Roth, F. P. (2023). Systematically testing human HMBS missense variants to reveal mechanism and pathogenic variation. The American Journal of Human Genetics, 110(10), 1769-1786.
 
 
