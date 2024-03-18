@@ -11,11 +11,9 @@ The PHACT data is uploaded on .
 We participated the CAGI6 HMBS challenge with the draft version of our approach. In the published version, we reproduced the results used in the challange to decide whether an algorithm is successful.
 The rank-based results are given in Table 1.
 
-<img src="images/Table.png" alt="Alt text" width="500"/>
-
-
-
-
+<div style="text-align:center;">
+    <img src="images/Table.png" alt="Alt text" width="200"/>
+</div>
 
 
 
