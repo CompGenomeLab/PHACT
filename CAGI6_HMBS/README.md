@@ -2,7 +2,7 @@
 
 **This folder contains the data and code required to reproduce the results of the CAGI6 HMBS challenge.**
 
-The experimental data is obtained from [MaveDB](https://www.mavedb.org/#/experiments/urn:mavedb:00000108-a). As mentioned in Zhang et al. (2024), mutations with experimental scores over 1.36 were excluded.
+The experimental data is obtained from [MaveDB](https://www.mavedb.org/#/experiments/urn:mavedb:00000108-a). As mentioned in Zhang et al. (2024), mutations with experimental scores over 1.36 were excluded. The comparisons are made over 5,811 missense mutations.
 
 PHACT scores for 3,023 proteins have been available since **18/10/2022** at the following link: [PHACT data](https://aperta.ulakbim.gov.tr/record/240637). Details on how these scores were computed, including the pseudocode of the PHACT approach, can be found in the [PHACT paper](https://doi.org/10.1093/molbev/msac114).
 
