@@ -1,3 +1,6 @@
+library(PRROC)
+library(AUC)
+
 ### Read the experimental data file
 file_name <- "Data/urn_mavedb_00000108-a-3_scores.csv"
 main <- read.csv(file_name)
@@ -101,24 +104,106 @@ for (i in 1:length(vect$Id)){
   phact <- c(phact, sc)
 }
 
-vect$PHACT <- phact
+eps <- 10^(-15)
+vect$PHACT <- 1-log(phact+eps)/log(eps)
+vect$SUBMITTED <- vect_submitted$Score
 
+result_table <- matrix(0, 2, 4)
+result_table <- as.data.frame(result_table)
 
+rownames(result_table) <- c("DraftApp", "PHACT")
+colnames(result_table) <- c("Tau", "Spearman", "Dele_Roc", "Wild_Roc")
 
+### KEANDALL TAU
 
+tau_sub <- cor.test(as.numeric(vect$Score), as.numeric(vect$SUBMITTED), method="kendall")
+tau_sub <- tau_sub$estimate
+tau_phact <- cor.test(as.numeric(vect$Score), as.numeric(vect$PHACT), method="kendall")
+tau_phact <- tau_phact$estimate
 
+result_table$Tau <- c(tau_sub, tau_phact)
 
+### SPEARMAN
 
+spearman_sub <- cor.test(as.numeric(vect$Score), as.numeric(vect$SUBMITTED), method="spearman")
+spearman_sub <- spearman_sub$estimate
 
+spearman_phact <- cor.test(as.numeric(vect$Score), as.numeric(vect$PHACT), method="spearman")
+spearman_phact <- spearman_phact$estimate
 
+result_table$Spearman <- c(spearman_sub, spearman_phact)
 
+### ROC Comparison
 
+i1 <- which(as.numeric(vect$Score)<0.3)
+i2 <- intersect(which(as.numeric(vect$Score)>=0.3), which(as.numeric(vect$Score)<0.8))
+i3 <- which(as.numeric(vect$Score)>=0.8)
 
+##### DELE_ROC
 
+vect3 <- rbind(vect[i1,], vect[i2,], vect[i3,])
+y <- c(matrix(1, 1, length(i1)), matrix(-1, 1, length(i2)), matrix(-1, 1, length(i3)))
 
+roc1 <- roc(1-as.numeric(vect3$SUBMITTED), as.factor(1 * (y == 1)))
+auc_sub <- auc(roc1)
+roc2 <- roc(1-as.numeric(vect3$PHACT), as.factor(1 * (y == 1)))
+auc_phact <- auc(roc2)
 
+result_table$Dele_Roc <- c(auc_sub, auc_phact)
 
+### WILD_ROC
 
+vect3 <- rbind(vect[i1,], vect[i2,], vect[i3,])
+y <- c(matrix(1, 1, length(i1)), matrix(1, 1, length(i2)), matrix(-1, 1, length(i3)))
+  
+roc1 <- roc(1-as.numeric(vect3$SUBMITTED), as.factor(1 * (y == 1)))
+auc_sub <- auc(roc1)
+roc2 <- roc(1-as.numeric(vect3$PHACT), as.factor(1 * (y == 1)))
+auc_phact <- auc(roc2)
 
+result_table$Wild_Roc <- c(auc_sub, auc_phact)
+
+print(result_table)
+
+### EXTRA MEASURES
+
+table_extra <- matrix(0, 2, 3)
+table_extra <- as.data.frame(table_extra)
+
+rownames(table_extra) <- c("DraftApp", "PHACT")
+colnames(table_extra) <- c("RMSD", "Pearson", "Value_Diff")
+
+##### RMSD
+
+rmsd_sub <- sqrt(sum((as.numeric(vect$PHACT) - as.numeric(vect$Score))^2)/length(vect$Id))
+rmsd_phact <- sqrt(sum((as.numeric(vect$SUBMITTED) - as.numeric(vect$Score))^2)/length(vect$Id))
+
+table_extra$RMSD <- c(rmsd_sub, rmsd_phact)
+
+##### PEARSON
+
+pearson_sub <- cor.test(as.numeric(vect$Score), as.numeric(vect$SUBMITTED), method="pearson")
+pearson_phact <- cor.test(as.numeric(vect$Score), as.numeric(vect$PHACT), method="pearson")
+
+table_extra$Pearson <- c(pearson_sub, pearson_phact)
+
+##### VALUE_DIFF
+
+calculate_AUC <- function(mutants, cutoff) {
+  percentage <- sum(mutants <= cutoff) / length(mutants)
+  return(percentage)
+}
+
+cutoffs <- seq(0, 1, by = 0.01)
+mutants <- abs(as.numeric(vect$Score)-as.numeric(vect$SUBMITTED))
+AUC_values <- sapply(cutoffs, function(cut) calculate_AUC(mutants, cut))
+value_diff_sub <- sum(AUC_values)/length(AUC_values)
+
+mutants <- abs(as.numeric(vect$Score)-as.numeric(vect$PHACT))
+AUC_values <- sapply(cutoffs, function(cut) calculate_AUC(mutants, cut))
+value_diff_phact <- sum(AUC_values)/length(AUC_values)
+
+table_extra$Value_Diff <- c(value_diff_sub, value_diff_phact)
+print(table_extra)
 
 
