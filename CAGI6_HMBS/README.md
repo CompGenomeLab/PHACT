@@ -14,7 +14,7 @@ We participated in the CAGI6 HMBS challenge with a draft version of our approach
 </p>
 
 
-As shown in the table, PHACT outperformed both our draft algorithm and PolyPhen-2, as well as the baseline approach.
+As shown in the table, PHACT outperformed both our draft algorithm and PolyPhen-2, as well as the baseline approach which is based on amino acid frequencies obtained from HMBS MSA [2].
 
 **References**
 
